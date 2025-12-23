@@ -15,7 +15,7 @@ import Support from "./pages/services/Support";
 import Ads from "./pages/services/Ads";
 import Portfolio from "./pages/Portfolio";
 import CaseStudy from "./pages/CaseStudy";
-import About from "./pages/About";
+
 import Blog from "./pages/Blog";
 import BlogArticle from "./pages/BlogArticle";
 
@@ -43,7 +43,7 @@ const App = () => (
               <Route path="/services/ads" element={<Ads />} />
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/portfolio/:caseId" element={<CaseStudy />} />
-              <Route path="/about" element={<About />} />
+              
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:articleSlug" element={<BlogArticle />} />
               
