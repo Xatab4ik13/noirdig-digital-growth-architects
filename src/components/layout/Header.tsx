@@ -19,7 +19,6 @@ const navigation = [
   { name: "Портфолио", href: "/portfolio" },
   { name: "О студии", href: "/about" },
   { name: "Блог", href: "/blog" },
-  { name: "FAQ", href: "/faq" },
   { name: "Контакты", href: "/contacts" },
 ];
 
