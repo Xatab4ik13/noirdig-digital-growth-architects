@@ -27,7 +27,7 @@ const packages = [
     name: "Start",
     description: "Простой бот для базовых задач",
     price: "от 10 000 ₽",
-    timeline: "1-2 недели",
+    timeline: "1-2 дня",
     features: [
       "До 5 сценариев",
       "Форма сбора заявок",
@@ -39,7 +39,7 @@ const packages = [
     name: "Pro",
     description: "Бот с интеграциями",
     price: "от 25 000 ₽",
-    timeline: "2-3 недели",
+    timeline: "1-2 недели",
     features: [
       "До 15 сценариев",
       "Интеграция с CRM",
@@ -53,7 +53,7 @@ const packages = [
     name: "Max",
     description: "Сложная автоматизация",
     price: "от 50 000 ₽",
-    timeline: "3-5 недель",
+    timeline: "3-4 недели",
     features: [
       "Неограниченные сценарии",
       "Любые интеграции",
@@ -187,7 +187,7 @@ const TelegramBots = () => {
                     ))}
                   </ul>
                   <Button variant={pkg.popular ? "gold" : "outline"} className="w-full" asChild>
-                    <Link to="/contacts">Выбрать</Link>
+                    <a href="https://t.me/noirdig" target="_blank" rel="noopener noreferrer">Подключить</a>
                   </Button>
                 </div>
               ))}
