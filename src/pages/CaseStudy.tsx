@@ -200,9 +200,8 @@ const CaseStudy = () => {
         {/* CTA */}
         <section className="section-padding">
           <div className="container-wide">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <SectionHeader badge="Хотите такой же результат?" title="Обсудим ваш проект" className="mb-0" />
-              <TelegramCTA />
+            <div className="max-w-3xl">
+              <TelegramCTA title="Хотите такой же результат?" subtitle="Напишите нам — обсудим ваш проект" />
             </div>
           </div>
         </section>

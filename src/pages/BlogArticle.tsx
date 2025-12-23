@@ -192,9 +192,8 @@ const BlogArticle = () => {
         {/* CTA */}
         <section className="section-padding">
           <div className="container-wide">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <SectionHeader badge="Нужна помощь?" title="Обсудим ваш проект" className="mb-0" />
-              <TelegramCTA />
+            <div className="max-w-3xl">
+              <TelegramCTA title="Нужна помощь с проектом?" subtitle="Напишите нам — обсудим ваши задачи" />
             </div>
           </div>
         </section>

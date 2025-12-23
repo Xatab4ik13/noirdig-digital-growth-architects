@@ -198,10 +198,7 @@ const TelegramBots = () => {
         {/* FAQ */}
         <section className="section-padding">
           <div className="container-wide">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
-              <SectionHeader badge="FAQ" title="Вопросы по Telegram-ботам" className="mb-0" />
-              <TelegramCTA />
-            </div>
+            <SectionHeader badge="FAQ" title="Вопросы по Telegram-ботам" />
             <div className="max-w-3xl">
               <Accordion type="single" collapsible className="space-y-4">
                 {faqs.map((faq, index) => (
@@ -211,6 +208,7 @@ const TelegramBots = () => {
                   </AccordionItem>
                 ))}
               </Accordion>
+              <TelegramCTA />
             </div>
           </div>
         </section>
