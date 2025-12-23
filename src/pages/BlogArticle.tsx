@@ -64,6 +64,39 @@ const BlogArticle = () => {
     }))
   } : null;
 
+  // HowTo Schema for audit article
+  const howToStructuredData = post.slug === "audit-sayta-30-minut" ? {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Как провести аудит сайта за 30 минут",
+    "description": "Пошаговый план экспресс-аудита сайта для выявления ошибок, которые убивают конверсию и заявки.",
+    "totalTime": "PT30M",
+    "tool": [
+      { "@type": "HowToTool", "name": "Браузер" },
+      { "@type": "HowToTool", "name": "Мобильный телефон" }
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Проверка первого контакта",
+        "text": "Проверьте скорость загрузки, мобильную версию, первый экран и понятность оффера. На это уйдёт 10 минут.",
+        "position": 1
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Анализ пути до заявки",
+        "text": "Проверьте структуру сайта, посадочные страницы, формы, CTA и наличие мессенджеров. На это уйдёт 10 минут.",
+        "position": 2
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Оценка доверия и аналитики",
+        "text": "Проверьте кейсы, отзывы, FAQ, настройку целей и UTM-разметку. На это уйдёт 10 минут.",
+        "position": 3
+      }
+    ]
+  } : null;
+
   const formattedDate = new Date(post.date).toLocaleDateString("ru-RU", {
     day: "numeric",
     month: "long",
@@ -100,6 +133,13 @@ const BlogArticle = () => {
         {faqStructuredData && (
           <script type="application/ld+json">
             {JSON.stringify(faqStructuredData)}
+          </script>
+        )}
+        
+        {/* Structured Data - HowTo for step-by-step guides */}
+        {howToStructuredData && (
+          <script type="application/ld+json">
+            {JSON.stringify(howToStructuredData)}
           </script>
         )}
       </Helmet>
