@@ -5,12 +5,25 @@ import { Layout } from "@/components/layout/Layout";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar } from "lucide-react";
-import { blogPosts, blogCategories, getPostsByCategory } from "@/data/blogPosts";
+import { ArrowRight, ArrowLeft, Calendar, ChevronLeft, ChevronRight } from "lucide-react";
+import { blogPosts } from "@/data/blogPosts";
+
+const POSTS_PER_PAGE = 6;
 
 const Blog = () => {
-  const [activeCategory, setActiveCategory] = useState("Все");
-  const filteredPosts = getPostsByCategory(activeCategory);
+  const [currentPage, setCurrentPage] = useState(0);
+  const totalPages = Math.ceil(blogPosts.length / POSTS_PER_PAGE);
+  
+  const startIndex = currentPage * POSTS_PER_PAGE;
+  const visiblePosts = blogPosts.slice(startIndex, startIndex + POSTS_PER_PAGE);
+
+  const goToPrevious = () => {
+    setCurrentPage((prev) => Math.max(0, prev - 1));
+  };
+
+  const goToNext = () => {
+    setCurrentPage((prev) => Math.min(totalPages - 1, prev + 1));
+  };
 
   // Structured data for blog listing
   const structuredData = {
@@ -70,23 +83,9 @@ const Blog = () => {
               description="Делимся опытом и знаниями о разработке, продвижении и автоматизации"
             />
 
-            {/* Categories */}
-            <div className="flex flex-wrap gap-2 mb-12">
-              {blogCategories.map((category) => (
-                <Button
-                  key={category}
-                  variant={category === activeCategory ? "gold" : "outline"}
-                  size="sm"
-                  onClick={() => setActiveCategory(category)}
-                >
-                  {category}
-                </Button>
-              ))}
-            </div>
-
             {/* Articles grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredPosts.map((article) => (
+              {visiblePosts.map((article) => (
                 <Link
                   key={article.slug}
                   to={`/blog/${article.slug}`}
@@ -96,7 +95,7 @@ const Blog = () => {
                     {article.image ? (
                       <img 
                         src={article.image} 
-                        alt={article.title}
+                        alt={article.imageAlt || article.title}
                         className="w-full h-full object-cover"
                         loading="lazy"
                       />
@@ -132,9 +131,32 @@ const Blog = () => {
               ))}
             </div>
 
-            {filteredPosts.length === 0 && (
-              <div className="text-center py-12">
-                <p className="text-muted-foreground">Статей в этой категории пока нет</p>
+            {/* Navigation arrows */}
+            {totalPages > 1 && (
+              <div className="flex items-center justify-center gap-4 mt-12">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={goToPrevious}
+                  disabled={currentPage === 0}
+                  className="h-12 w-12 rounded-full"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </Button>
+                
+                <span className="text-muted-foreground text-sm min-w-[80px] text-center">
+                  {currentPage + 1} / {totalPages}
+                </span>
+                
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={goToNext}
+                  disabled={currentPage === totalPages - 1}
+                  className="h-12 w-12 rounded-full"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </Button>
               </div>
             )}
           </div>
