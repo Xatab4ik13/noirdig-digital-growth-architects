@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
+import { SectionHeader } from "@/components/shared/SectionHeader";
 import { TelegramCTA } from "@/components/shared/TelegramCTA";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, Clock, ArrowLeft } from "lucide-react";
@@ -189,13 +190,11 @@ const BlogArticle = () => {
         </article>
 
         {/* CTA */}
-        <section className="section-padding bg-secondary/30">
+        <section className="section-padding">
           <div className="container-wide">
-            <div className="max-w-2xl mx-auto">
-              <TelegramCTA
-                title="Нужна помощь с проектом?"
-                subtitle="Напишите нам — обсудим ваши задачи"
-              />
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <SectionHeader badge="Нужна помощь?" title="Обсудим ваш проект" className="mb-0" />
+              <TelegramCTA />
             </div>
           </div>
         </section>

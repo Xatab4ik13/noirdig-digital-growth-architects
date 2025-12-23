@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
+import { SectionHeader } from "@/components/shared/SectionHeader";
 import { TelegramCTA } from "@/components/shared/TelegramCTA";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, Gauge, MousePointerClick, Search, ExternalLink } from "lucide-react";
@@ -197,13 +198,11 @@ const CaseStudy = () => {
         </section>
 
         {/* CTA */}
-        <section className="section-padding bg-secondary/30">
+        <section className="section-padding">
           <div className="container-wide">
-            <div className="max-w-2xl mx-auto">
-              <TelegramCTA
-                title="Хотите такой же результат?"
-                subtitle="Напишите нам — обсудим ваш проект"
-              />
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <SectionHeader badge="Хотите такой же результат?" title="Обсудим ваш проект" className="mb-0" />
+              <TelegramCTA />
             </div>
           </div>
         </section>

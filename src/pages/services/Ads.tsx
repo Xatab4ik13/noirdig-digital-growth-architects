@@ -142,13 +142,11 @@ const Ads = () => {
           </div>
         </section>
 
-        <section className="section-padding bg-secondary/30">
+        <section className="section-padding">
           <div className="container-wide">
-            <div className="max-w-2xl mx-auto">
-              <TelegramCTA
-                title="Обсудить рекламу"
-                subtitle="Напишите нам — расскажите о задачах"
-              />
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <SectionHeader badge="Остались вопросы?" title="Свяжитесь с нами" className="mb-0" />
+              <TelegramCTA />
             </div>
           </div>
         </section>
