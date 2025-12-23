@@ -2,7 +2,6 @@ import { SectionHeader } from "@/components/shared/SectionHeader";
 import {
   Clock,
   BarChart3,
-  Eye,
   Palette,
   Search,
   Headphones,
@@ -18,17 +17,12 @@ const advantages = [
   {
     icon: Clock,
     title: "Соблюдение сроков",
-    description: "Фиксируем сроки в договоре и придерживаемся их. Типовой проект — 2-4 недели.",
+    description: "Типовой проект — от 3 дней.",
   },
   {
     icon: BarChart3,
     title: "Аналитика с первого дня",
     description: "Настраиваем цели и события в Яндекс.Метрике. Вы видите, откуда приходят заявки.",
-  },
-  {
-    icon: Eye,
-    title: "Полная прозрачность",
-    description: "Доступы к хостингу, коду и аналитике — ваши. Никаких зависимостей от подрядчика.",
   },
   {
     icon: Palette,
@@ -71,7 +65,7 @@ export const WhyUsSection = () => {
       <div className="container-wide">
         <SectionHeader
           badge="Почему NOIRDIG"
-          title="7 причин работать с нами"
+          title="6 причин работать с нами"
           description="Мы не просто делаем сайты — мы создаём инструменты для роста вашего бизнеса"
         />
 

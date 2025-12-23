@@ -19,13 +19,6 @@ export const HeroSection = () => {
 
       <div className="container-wide section-padding">
         <div className="max-w-4xl">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-secondary border border-border rounded-full px-4 py-1.5 mb-6 animate-fade-up">
-            <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-            <span className="text-body-sm text-muted-foreground">
-              Принимаем проекты на январь 2025
-            </span>
-          </div>
 
           {/* Headline */}
           <h1 className="text-h1 md:text-display mb-6 animate-fade-up delay-100">
