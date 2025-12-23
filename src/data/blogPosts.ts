@@ -36,6 +36,11 @@
 
 */
 
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -47,6 +52,7 @@ export interface BlogPost {
   image?: string;
   content: string;
   relatedSlugs?: string[];
+  faq?: FAQItem[];
 }
 
 export const blogCategories = [
@@ -284,6 +290,24 @@ export const blogPosts: BlogPost[] = [
       <p>Если трафик есть, а кликов по CTA и отправок формы мало — проблема обычно в первом экране, оффере, доверии или форме. Это видно по кликам и скроллу в аналитике.</p>
     `,
     relatedSlugs: ["seo-osnovy-dlya-novogo-sayta", "pagespeed-optimizatsiya", "yandex-metrika-nastroyka-tseley"],
+    faq: [
+      {
+        question: "Сколько блоков нужно на лендинге?",
+        answer: "Обычно 7–12 смысловых блоков: оффер → выгоды → процесс → доказательства → доверие → возражения → форма."
+      },
+      {
+        question: "Что важнее: дизайн или текст?",
+        answer: "Связка. Без смысла и оффера дизайн не продаёт, а без удобства даже хороший текст не конвертирует."
+      },
+      {
+        question: "Можно ли продвигать лендинг в SEO?",
+        answer: "Да, если есть структура, полезный контент (детали, FAQ), техническая база и аналитика для улучшений."
+      },
+      {
+        question: "Как понять, что лендинг не продаёт?",
+        answer: "Если трафик есть, а кликов по CTA и отправок формы мало — проблема обычно в первом экране, оффере, доверии или форме. Это видно по кликам и скроллу в аналитике."
+      }
+    ],
   },
   {
     slug: "telegram-bot-dlya-biznesa",
