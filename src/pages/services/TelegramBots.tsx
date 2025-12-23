@@ -26,7 +26,7 @@ const packages = [
   {
     name: "Start",
     description: "Простой бот для базовых задач",
-    price: "от 30 000 ₽",
+    price: "от 10 000 ₽",
     timeline: "1-2 недели",
     features: [
       "До 5 сценариев",
@@ -38,7 +38,7 @@ const packages = [
   {
     name: "Pro",
     description: "Бот с интеграциями",
-    price: "от 60 000 ₽",
+    price: "от 25 000 ₽",
     timeline: "2-3 недели",
     features: [
       "До 15 сценариев",
@@ -52,7 +52,7 @@ const packages = [
   {
     name: "Max",
     description: "Сложная автоматизация",
-    price: "от 100 000 ₽",
+    price: "от 50 000 ₽",
     timeline: "3-5 недель",
     features: [
       "Неограниченные сценарии",
@@ -102,7 +102,7 @@ const TelegramBots = () => {
         <title>Разработка Telegram-ботов — NOIRDIG</title>
         <meta
           name="description"
-          content="Создание Telegram-ботов для бизнеса: воронки продаж, запись клиентов, интеграции с CRM, приём оплаты. От 30 000 ₽."
+          content="Создание Telegram-ботов для бизнеса: воронки продаж, запись клиентов, интеграции с CRM, приём оплаты. От 10 000 ₽."
         />
         <link rel="canonical" href="https://noirdig.ru/services/telegram-bots/" />
       </Helmet>
