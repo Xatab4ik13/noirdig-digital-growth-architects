@@ -27,11 +27,11 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-primary rounded-sm flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">N</span>
+            <Link to="/" className="flex items-center mb-4">
+              <div className="w-10 h-10 bg-primary rounded-sm flex items-center justify-center mr-1">
+                <span className="text-primary-foreground font-bold text-xl">N</span>
               </div>
-              <span className="font-bold text-lg tracking-tight">NOIRDIG</span>
+              <span className="font-bold text-xl tracking-tight">OIRDIG</span>
             </Link>
             <p className="text-muted-foreground text-body-sm mb-6">
               Поможем привлечь клиентов и увеличить продажи в онлайне. 
