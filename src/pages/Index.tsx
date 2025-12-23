@@ -6,7 +6,6 @@ import { WhyUsSection } from "@/components/home/WhyUsSection";
 import { CasesPreviewSection } from "@/components/home/CasesPreviewSection";
 import { ProcessSection } from "@/components/home/ProcessSection";
 import { KPISection } from "@/components/home/KPISection";
-import { FAQPreviewSection } from "@/components/home/FAQPreviewSection";
 import { CTASection } from "@/components/home/CTASection";
 
 const Index = () => {
@@ -33,7 +32,6 @@ const Index = () => {
         <CasesPreviewSection />
         <ProcessSection />
         <KPISection />
-        <FAQPreviewSection />
         <CTASection />
       </Layout>
     </>

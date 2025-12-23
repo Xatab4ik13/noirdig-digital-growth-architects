@@ -12,7 +12,6 @@ const footerLinks = {
     { name: "О студии", href: "/about" },
     { name: "Портфолио", href: "/portfolio" },
     { name: "Блог", href: "/blog" },
-    { name: "FAQ", href: "/faq" },
     { name: "Контакты", href: "/contacts" },
   ],
   legal: [
