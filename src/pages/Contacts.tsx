@@ -1,8 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
-import { ContactForm } from "@/components/shared/ContactForm";
-import { Mail, Phone, MapPin, Send, Clock } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Mail, Phone, MapPin, Send, Clock, ArrowRight } from "lucide-react";
 
 const Contacts = () => {
   return (
@@ -21,87 +21,70 @@ const Contacts = () => {
           <div className="container-wide">
             <Breadcrumbs items={[{ label: "Контакты", href: "/contacts" }]} />
 
-            <div className="grid lg:grid-cols-2 gap-12">
-              {/* Contact info */}
-              <div>
-                <h1 className="text-h1 md:text-display mb-6">
-                  Давайте <span className="text-gradient">обсудим</span> ваш проект
-                </h1>
-                <p className="text-body-lg text-muted-foreground mb-8">
-                  Расскажите о задачах — подготовим предложение и оценим сроки. 
-                  Консультация бесплатная.
-                </p>
+            <div className="max-w-3xl mx-auto text-center mb-12">
+              <h1 className="text-h1 md:text-display mb-6">
+                Давайте <span className="text-gradient">обсудим</span> ваш проект
+              </h1>
+              <p className="text-body-lg text-muted-foreground mb-8">
+                Расскажите о задачах — подготовим предложение и оценим сроки. 
+                Консультация бесплатная.
+              </p>
+              
+              {/* Main CTA - Telegram */}
+              <Button variant="gold" size="xl" asChild className="mb-4">
+                <a
+                  href="https://t.me/noirdig"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Send className="h-5 w-5" />
+                  Написать в Telegram
+                  <ArrowRight className="h-5 w-5" />
+                </a>
+              </Button>
+              <p className="text-body-sm text-muted-foreground">
+                Отвечаем в течение 2 часов в рабочее время
+              </p>
+            </div>
 
-                <div className="space-y-6">
-                  <a
-                    href="mailto:hello@noirdig.ru"
-                    className="flex items-center gap-4 card-noir hover:border-primary transition-colors"
-                  >
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <Mail className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <div className="font-semibold">Email</div>
-                      <div className="text-muted-foreground">hello@noirdig.ru</div>
-                    </div>
-                  </a>
-
-                  <a
-                    href="tel:+79001234567"
-                    className="flex items-center gap-4 card-noir hover:border-primary transition-colors"
-                  >
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <Phone className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <div className="font-semibold">Телефон</div>
-                      <div className="text-muted-foreground">+7 (900) 123-45-67</div>
-                    </div>
-                  </a>
-
-                  <a
-                    href="https://t.me/noirdig"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-4 card-noir hover:border-primary transition-colors"
-                  >
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <Send className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <div className="font-semibold">Telegram</div>
-                      <div className="text-muted-foreground">@noirdig</div>
-                    </div>
-                  </a>
-
-                  <div className="flex items-center gap-4 card-noir">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <MapPin className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <div className="font-semibold">Локация</div>
-                      <div className="text-muted-foreground">Россия, работаем удалённо</div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-4 card-noir">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <Clock className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <div className="font-semibold">Время ответа</div>
-                      <div className="text-muted-foreground">В течение 2 часов (пн-пт, 10:00-19:00 МСК)</div>
-                    </div>
-                  </div>
+            {/* Contact cards */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+              <a
+                href="mailto:hello@noirdig.ru"
+                className="card-noir text-center hover:border-primary transition-colors"
+              >
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <Mail className="h-6 w-6 text-primary" />
                 </div>
+                <div className="font-semibold mb-1">Email</div>
+                <div className="text-muted-foreground text-body-sm">hello@noirdig.ru</div>
+              </a>
+
+              <a
+                href="tel:+79001234567"
+                className="card-noir text-center hover:border-primary transition-colors"
+              >
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <Phone className="h-6 w-6 text-primary" />
+                </div>
+                <div className="font-semibold mb-1">Телефон</div>
+                <div className="text-muted-foreground text-body-sm">+7 (900) 123-45-67</div>
+              </a>
+
+              <div className="card-noir text-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <MapPin className="h-6 w-6 text-primary" />
+                </div>
+                <div className="font-semibold mb-1">Локация</div>
+                <div className="text-muted-foreground text-body-sm">Работаем удалённо</div>
               </div>
 
-              {/* Form */}
-              <div>
-                <ContactForm
-                  title="Оставить заявку"
-                  subtitle="Заполните форму — мы свяжемся с вами"
-                />
+              <div className="card-noir text-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <Clock className="h-6 w-6 text-primary" />
+                </div>
+                <div className="font-semibold mb-1">Время ответа</div>
+                <div className="text-muted-foreground text-body-sm">До 2 часов</div>
               </div>
             </div>
           </div>

@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
-import { ContactForm } from "@/components/shared/ContactForm";
+import { TelegramCTA } from "@/components/shared/TelegramCTA";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, Clock, ArrowLeft } from "lucide-react";
 import { getPostBySlug, getRelatedPosts } from "@/data/blogPosts";
@@ -192,9 +192,9 @@ const BlogArticle = () => {
         <section className="section-padding bg-secondary/30">
           <div className="container-wide">
             <div className="max-w-2xl mx-auto">
-              <ContactForm
+              <TelegramCTA
                 title="Нужна помощь с проектом?"
-                subtitle="Обсудим ваши задачи"
+                subtitle="Напишите нам — обсудим ваши задачи"
               />
             </div>
           </div>

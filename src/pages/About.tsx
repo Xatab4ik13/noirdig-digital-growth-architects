@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { SectionHeader } from "@/components/shared/SectionHeader";
-import { ContactForm } from "@/components/shared/ContactForm";
+
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check, Eye, Clock, BarChart3, Shield, Palette, Search, Headphones } from "lucide-react";
+import { ArrowRight, Check, Eye, Clock, BarChart3, Shield, Palette, Headphones, Send } from "lucide-react";
 
 const principles = [
   {
@@ -144,10 +144,15 @@ const About = () => {
               Расскажите о вашем проекте — подготовим предложение
             </p>
             <Button variant="gold" size="lg" asChild>
-              <Link to="/contacts">
-                Обсудить проект
+              <a
+                href="https://t.me/noirdig"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Send className="h-5 w-5" />
+                Написать в Telegram
                 <ArrowRight className="h-4 w-4" />
-              </Link>
+              </a>
             </Button>
           </div>
         </section>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { SectionHeader } from "@/components/shared/SectionHeader";
-import { ContactForm } from "@/components/shared/ContactForm";
+import { TelegramCTA } from "@/components/shared/TelegramCTA";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, Target, BarChart3, Settings, TrendingUp } from "lucide-react";
 
@@ -145,7 +145,10 @@ const Ads = () => {
         <section className="section-padding bg-secondary/30">
           <div className="container-wide">
             <div className="max-w-2xl mx-auto">
-              <ContactForm title="Обсудить рекламу" subtitle="Расскажите о задачах" />
+              <TelegramCTA
+                title="Обсудить рекламу"
+                subtitle="Напишите нам — расскажите о задачах"
+              />
             </div>
           </div>
         </section>
