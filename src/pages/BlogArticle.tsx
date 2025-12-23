@@ -164,20 +164,6 @@ const BlogArticle = () => {
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
 
-            {/* CTA block */}
-            <div className="bg-card border border-border rounded-xl p-6 my-8">
-              <h3 className="text-h4 mb-4">Нужна помощь с проектом?</h3>
-              <p className="text-muted-foreground mb-4">
-                Мы поможем реализовать ваши идеи. Обсудим ваш проект?
-              </p>
-              <Button variant="gold" asChild>
-                <Link to="/contacts">
-                  Связаться с нами
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
-
             {/* Related articles */}
             {relatedPosts.length > 0 && (
               <div className="border-t border-border pt-12 mb-12">
