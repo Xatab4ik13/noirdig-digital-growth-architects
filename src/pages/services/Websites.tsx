@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { SectionHeader } from "@/components/shared/SectionHeader";
-import { ContactForm } from "@/components/shared/ContactForm";
+import { TelegramCTA } from "@/components/shared/TelegramCTA";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -268,13 +268,12 @@ const Websites = () => {
           </div>
         </section>
 
-        {/* CTA */}
         <section className="section-padding bg-secondary/30">
           <div className="container-wide">
             <div className="max-w-2xl mx-auto">
-              <ContactForm
+              <TelegramCTA
                 title="Обсудим ваш сайт?"
-                subtitle="Расскажите о проекте — подготовим коммерческое предложение"
+                subtitle="Напишите нам — подготовим коммерческое предложение"
               />
             </div>
           </div>

@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
-import { ContactForm } from "@/components/shared/ContactForm";
+import { TelegramCTA } from "@/components/shared/TelegramCTA";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, Gauge, MousePointerClick, Search, ExternalLink } from "lucide-react";
 
@@ -200,9 +200,9 @@ const CaseStudy = () => {
         <section className="section-padding bg-secondary/30">
           <div className="container-wide">
             <div className="max-w-2xl mx-auto">
-              <ContactForm
+              <TelegramCTA
                 title="Хотите такой же результат?"
-                subtitle="Обсудим ваш проект"
+                subtitle="Напишите нам — обсудим ваш проект"
               />
             </div>
           </div>
