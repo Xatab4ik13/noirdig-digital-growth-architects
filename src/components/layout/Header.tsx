@@ -34,11 +34,11 @@ export const Header = () => {
       <div className="container-wide">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-primary rounded-sm flex items-center justify-center mr-1">
-              <span className="text-primary-foreground font-bold text-xl md:text-2xl">N</span>
+          <Link to="/" className="flex items-center group">
+            <div className="w-10 h-10 md:w-12 md:h-12 bg-primary rounded-sm flex items-center justify-center mr-1 transition-all duration-300 group-hover:rotate-6 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/30">
+              <span className="text-primary-foreground font-bold text-xl md:text-2xl transition-transform duration-300 group-hover:scale-110">N</span>
             </div>
-            <span className="font-bold text-xl md:text-2xl tracking-tight">OIRDIG</span>
+            <span className="font-bold text-xl md:text-2xl tracking-tight transition-colors duration-300 group-hover:text-primary">OIRDIG</span>
           </Link>
 
           {/* Desktop Navigation */}
