@@ -293,7 +293,7 @@ export const blogPosts: BlogPost[] = [
       <div class="cta-block">
         <h2>Хотите продающий лендинг под ключ?</h2>
         <p>Мы делаем <a href="/services/websites">разработку лендингов под ключ</a>: от прототипа и текстов до дизайна, вёрстки и аналитики. Обычно начинаем с короткого брифа и предлагаем 2–3 варианта структуры: «быстрый MVP», «оптимальный», «расширенный».</p>
-        <a href="https://t.me/nicksavin" class="cta-button" target="_blank" rel="noopener noreferrer">Обсудить проект в Telegram</a>
+        <a href="https://t.me/nicksavin" class="cta-button" target="_blank" rel="noopener noreferrer">Связаться с нами</a>
       </div>
     `,
     relatedSlugs: ["seo-osnovy-dlya-novogo-sayta", "pagespeed-optimizatsiya", "yandex-metrika-nastroyka-tseley"],
@@ -527,7 +527,7 @@ export const blogPosts: BlogPost[] = [
       <div class="cta-block">
         <h2>Хотите Telegram-бота под ключ под вашу задачу?</h2>
         <p>Мы делаем <a href="/services/telegram-bots">разработку Telegram-ботов под ключ</a>: от сценария и текстов до интеграций, тестирования и запуска. Обычно начинаем с короткого брифа и предлагаем 2–3 варианта логики: «быстрый MVP», «оптимальный», «расширенный».</p>
-        <a href="https://t.me/nicksavin" class="cta-button" target="_blank" rel="noopener noreferrer">Обсудить проект в Telegram</a>
+        <a href="https://t.me/nicksavin" class="cta-button" target="_blank" rel="noopener noreferrer">Связаться с нами</a>
       </div>
     `,
     relatedSlugs: ["kak-sozdat-prodayushchiy-lending", "seo-osnovy-dlya-novogo-sayta"],
