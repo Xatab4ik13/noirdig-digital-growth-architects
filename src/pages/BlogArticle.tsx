@@ -20,7 +20,7 @@ const BlogArticle = () => {
   const relatedPosts = post.relatedSlugs ? getRelatedPosts(post.relatedSlugs) : [];
 
   // Structured data for article (JSON-LD)
-  const structuredData = {
+  const articleStructuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": post.title,
@@ -50,6 +50,20 @@ const BlogArticle = () => {
     "wordCount": post.content.split(/\s+/).length
   };
 
+  // FAQ Schema for rich snippets
+  const faqStructuredData = post.faq && post.faq.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": post.faq.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  } : null;
+
   const formattedDate = new Date(post.date).toLocaleDateString("ru-RU", {
     day: "numeric",
     month: "long",
@@ -77,10 +91,17 @@ const BlogArticle = () => {
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.excerpt} />
         
-        {/* Structured Data */}
+        {/* Structured Data - Article */}
         <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
+          {JSON.stringify(articleStructuredData)}
         </script>
+        
+        {/* Structured Data - FAQ for rich snippets */}
+        {faqStructuredData && (
+          <script type="application/ld+json">
+            {JSON.stringify(faqStructuredData)}
+          </script>
+        )}
       </Helmet>
 
       <Layout>
