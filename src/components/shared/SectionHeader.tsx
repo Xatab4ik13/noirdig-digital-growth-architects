@@ -1,8 +1,11 @@
+import { cn } from "@/lib/utils";
+
 interface SectionHeaderProps {
   badge?: string;
   title: string;
   description?: string;
   align?: "left" | "center";
+  className?: string;
 }
 
 export const SectionHeader = ({
@@ -10,9 +13,10 @@ export const SectionHeader = ({
   title,
   description,
   align = "left",
+  className,
 }: SectionHeaderProps) => {
   return (
-    <div className={`mb-12 ${align === "center" ? "text-center" : ""}`}>
+    <div className={cn(`mb-12 ${align === "center" ? "text-center" : ""}`, className)}>
       {badge && (
         <span className="inline-block text-primary text-body-sm font-medium tracking-wide uppercase mb-3">
           {badge}

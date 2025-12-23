@@ -246,7 +246,10 @@ const Websites = () => {
         {/* FAQ */}
         <section className="section-padding">
           <div className="container-wide">
-            <SectionHeader badge="FAQ" title="Вопросы по разработке сайтов" />
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+              <SectionHeader badge="FAQ" title="Вопросы по разработке сайтов" className="mb-0" />
+              <TelegramCTA />
+            </div>
             <div className="max-w-3xl">
               <Accordion type="single" collapsible className="space-y-4">
                 {faqs.map((faq, index) => (
@@ -264,17 +267,6 @@ const Websites = () => {
                   </AccordionItem>
                 ))}
               </Accordion>
-            </div>
-          </div>
-        </section>
-
-        <section className="section-padding bg-secondary/30">
-          <div className="container-wide">
-            <div className="max-w-2xl mx-auto">
-              <TelegramCTA
-                title="Обсудим ваш сайт?"
-                subtitle="Напишите нам — подготовим коммерческое предложение"
-              />
             </div>
           </div>
         </section>
