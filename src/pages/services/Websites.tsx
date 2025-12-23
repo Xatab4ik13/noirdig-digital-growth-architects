@@ -42,7 +42,7 @@ const packages = [
   {
     name: "Start",
     description: "Лендинг для быстрого старта",
-    price: "от 50 000 ₽",
+    price: "от 15 000 ₽",
     timeline: "2-3 недели",
     features: [
       "До 5 экранов",
@@ -55,7 +55,7 @@ const packages = [
   {
     name: "Pro",
     description: "Корпоративный сайт",
-    price: "от 120 000 ₽",
+    price: "от 40 000 ₽",
     timeline: "3-4 недели",
     features: [
       "До 15 страниц",
@@ -70,7 +70,7 @@ const packages = [
   {
     name: "Max",
     description: "Интернет-магазин",
-    price: "от 200 000 ₽",
+    price: "от 80 000 ₽",
     timeline: "4-8 недель",
     features: [
       "Каталог товаров",
@@ -121,7 +121,7 @@ const Websites = () => {
         <title>Создание сайтов под ключ — NOIRDIG</title>
         <meta
           name="description"
-          content="Разработка лендингов, корпоративных сайтов и интернет-магазинов. Современный дизайн, PageSpeed 90+, SEO-оптимизация. От 50 000 ₽."
+          content="Разработка лендингов, корпоративных сайтов и интернет-магазинов. Современный дизайн, PageSpeed 90+, SEO-оптимизация. От 15 000 ₽."
         />
         <link rel="canonical" href="https://noirdig.ru/services/websites/" />
       </Helmet>

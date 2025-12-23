@@ -17,7 +17,7 @@ const services = [
 const packages = [
   {
     name: "Start",
-    price: "25 000 ₽/мес",
+    price: "10 000 ₽/мес",
     adBudget: "до 50 000 ₽/мес",
     features: [
       "Настройка 1 кампании",
@@ -27,7 +27,7 @@ const packages = [
   },
   {
     name: "Pro",
-    price: "40 000 ₽/мес",
+    price: "20 000 ₽/мес",
     adBudget: "до 150 000 ₽/мес",
     features: [
       "До 3 кампаний",
@@ -39,7 +39,7 @@ const packages = [
   },
   {
     name: "Max",
-    price: "от 60 000 ₽/мес",
+    price: "от 35 000 ₽/мес",
     adBudget: "от 150 000 ₽/мес",
     features: [
       "Неограниченные кампании",
