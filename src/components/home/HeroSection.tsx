@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Zap, TrendingUp, Shield } from "lucide-react";
 
 const benefits = [
-  { icon: Zap, text: "Быстрый запуск за 2-4 недели" },
+  { icon: Zap, text: "Запуск от 3 дней" },
   { icon: TrendingUp, text: "Рост заявок от 30%" },
   { icon: Shield, text: "Гарантия и поддержка" },
 ];
