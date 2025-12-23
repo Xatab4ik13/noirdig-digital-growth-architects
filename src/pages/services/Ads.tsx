@@ -142,13 +142,6 @@ const Ads = () => {
           </div>
         </section>
 
-        <section className="section-padding">
-          <div className="container-wide">
-            <div className="max-w-3xl">
-              <TelegramCTA title="Остались вопросы?" subtitle="Напишите нам — расскажите о задачах" />
-            </div>
-          </div>
-        </section>
       </Layout>
     </>
   );
