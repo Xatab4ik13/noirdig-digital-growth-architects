@@ -208,7 +208,6 @@ const TelegramBots = () => {
                   </AccordionItem>
                 ))}
               </Accordion>
-              <TelegramCTA />
             </div>
           </div>
         </section>

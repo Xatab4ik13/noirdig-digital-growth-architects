@@ -264,7 +264,6 @@ const Websites = () => {
                   </AccordionItem>
                 ))}
               </Accordion>
-              <TelegramCTA />
             </div>
           </div>
         </section>
