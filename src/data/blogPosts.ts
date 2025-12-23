@@ -282,12 +282,6 @@ export const blogPosts: BlogPost[] = [
 
       <h3>Как понять, что лендинг не продаёт?</h3>
       <p>Если трафик есть, а кликов по CTA и отправок формы мало — проблема обычно в первом экране, оффере, доверии или форме. Это видно по кликам и скроллу в аналитике.</p>
-
-      <div class="cta-block">
-        <h2>Нужен лендинг под ключ?</h2>
-        <p>Мы создаём продающие лендинги с нуля: от прототипа до запуска с SEO и аналитикой. Обсудим ваш проект и подберём оптимальное решение.</p>
-        <a href="https://t.me/nicksavin" target="_blank" rel="noopener noreferrer" class="cta-button">Обсудить проект →</a>
-      </div>
     `,
     relatedSlugs: ["seo-osnovy-dlya-novogo-sayta", "pagespeed-optimizatsiya", "yandex-metrika-nastroyka-tseley"],
   },
