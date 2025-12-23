@@ -43,7 +43,7 @@ const packages = [
     name: "Start",
     description: "Лендинг для быстрого старта",
     price: "от 15 000 ₽",
-    timeline: "2-3 недели",
+    timeline: "1-3 дня",
     features: [
       "До 5 экранов",
       "Адаптив под мобильные",
@@ -56,7 +56,7 @@ const packages = [
     name: "Pro",
     description: "Корпоративный сайт",
     price: "от 40 000 ₽",
-    timeline: "3-4 недели",
+    timeline: "1-2 недели",
     features: [
       "До 15 страниц",
       "CMS для управления",
@@ -235,7 +235,7 @@ const Websites = () => {
                     className="w-full"
                     asChild
                   >
-                    <Link to="/contacts">Выбрать</Link>
+                    <a href="https://t.me/noirdig" target="_blank" rel="noopener noreferrer">Подключить</a>
                   </Button>
                 </div>
               ))}

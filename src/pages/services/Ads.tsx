@@ -134,7 +134,7 @@ const Ads = () => {
                     ))}
                   </ul>
                   <Button variant={pkg.popular ? "gold" : "outline"} className="w-full" asChild>
-                    <Link to="/contacts">Подключить</Link>
+                    <a href="https://t.me/noirdig" target="_blank" rel="noopener noreferrer">Подключить</a>
                   </Button>
                 </div>
               ))}
