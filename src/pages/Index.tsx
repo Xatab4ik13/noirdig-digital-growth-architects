@@ -1,13 +1,42 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Helmet } from "react-helmet-async";
+import { Layout } from "@/components/layout/Layout";
+import { HeroSection } from "@/components/home/HeroSection";
+import { ServicesSection } from "@/components/home/ServicesSection";
+import { WhyUsSection } from "@/components/home/WhyUsSection";
+import { CasesPreviewSection } from "@/components/home/CasesPreviewSection";
+import { ProcessSection } from "@/components/home/ProcessSection";
+import { KPISection } from "@/components/home/KPISection";
+import { FAQPreviewSection } from "@/components/home/FAQPreviewSection";
+import { CTASection } from "@/components/home/CTASection";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <>
+      <Helmet>
+        <title>NOIRDIG — Создание сайтов и Telegram-ботов под ключ</title>
+        <meta
+          name="description"
+          content="Поможем привлечь клиентов и увеличить продажи в онлайне. Разработка сайтов и Telegram-ботов для малого бизнеса и B2B по всей России."
+        />
+        <meta property="og:title" content="NOIRDIG — Создание сайтов и Telegram-ботов" />
+        <meta
+          property="og:description"
+          content="Премиальная digital-студия. Сайты под ключ, Telegram-боты, контекстная реклама."
+        />
+        <link rel="canonical" href="https://noirdig.ru/" />
+      </Helmet>
+
+      <Layout>
+        <HeroSection />
+        <ServicesSection />
+        <WhyUsSection />
+        <CasesPreviewSection />
+        <ProcessSection />
+        <KPISection />
+        <FAQPreviewSection />
+        <CTASection />
+      </Layout>
+    </>
   );
 };
 
