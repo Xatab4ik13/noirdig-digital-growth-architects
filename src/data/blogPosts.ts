@@ -76,6 +76,7 @@ export const blogPosts: BlogPost[] = [
     date: "2024-12-23",
     readTime: "15 мин",
     author: "NOIRDIG",
+    image: "/assets/blog/landing-page-guide.jpg",
     content: `
       <nav class="toc">
         <h2>Содержание</h2>
