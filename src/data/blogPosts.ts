@@ -50,6 +50,7 @@ export interface BlogPost {
   readTime: string;
   author: string;
   image?: string;
+  imageAlt?: string;
   content: string;
   relatedSlugs?: string[];
   faq?: FAQItem[];
@@ -77,6 +78,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "15 мин",
     author: "NOIRDIG",
     image: "/assets/blog/landing-page-guide.jpg",
+    imageAlt: "Структура продающего лендинга: первый экран с оффером, блоки выгод, кейсы и форма заявки — пошаговое руководство по созданию",
     content: `
       <nav class="toc">
         <h2>Содержание</h2>
@@ -325,6 +327,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "12 мин",
     author: "NOIRDIG",
     image: "/assets/blog/telegram-bot-business.jpg",
+    imageAlt: "Telegram-бот для бизнеса: автоматизация заявок, записи на услуги, каталог товаров и интеграция с CRM в мессенджере",
     content: `
       <p><strong>Телеграм-бот для бизнеса</strong> — это инструмент, который автоматизирует общение с клиентами, собирает заявки, отвечает на частые вопросы, записывает на услуги и даже принимает оплату — прямо в Telegram. Если у вас есть сайт, реклама или органический трафик, бот превращает этот поток в управляемую воронку: человек нажал кнопку → получил нужную информацию → оставил контакты → купил или записался.</p>
       
