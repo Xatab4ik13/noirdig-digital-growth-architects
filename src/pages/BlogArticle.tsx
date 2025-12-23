@@ -171,10 +171,10 @@ const BlogArticle = () => {
                 Мы поможем реализовать ваши идеи. Обсудим ваш проект?
               </p>
               <Button variant="gold" asChild>
-                <Link to="/contacts">
+                <a href="https://t.me/nicksavin" target="_blank" rel="noopener noreferrer">
                   Связаться с нами
                   <ArrowRight className="h-4 w-4" />
-                </Link>
+                </a>
               </Button>
             </div>
 

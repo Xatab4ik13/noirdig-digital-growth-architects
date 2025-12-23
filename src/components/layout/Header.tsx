@@ -113,7 +113,7 @@ export const Header = () => {
             </Button>
 
             <Button variant="gold" className="hidden md:flex" asChild>
-              <Link to="/contacts">Обсудить проект</Link>
+              <a href="https://t.me/nicksavin" target="_blank" rel="noopener noreferrer">Обсудить проект</a>
             </Button>
 
             {/* Mobile menu button */}
@@ -174,9 +174,9 @@ export const Header = () => {
                   )}
                 </Button>
                 <Button variant="gold" className="flex-1" asChild>
-                  <Link to="/contacts" onClick={() => setIsOpen(false)}>
+                  <a href="https://t.me/nicksavin" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
                     Обсудить проект
-                  </Link>
+                  </a>
                 </Button>
               </div>
             </nav>

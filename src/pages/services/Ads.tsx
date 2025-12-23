@@ -81,10 +81,10 @@ const Ads = () => {
                 на ваш сайт с измеримым результатом и прозрачной отчётностью.
               </p>
               <Button variant="gold" size="lg" asChild>
-                <Link to="/contacts">
+                <a href="https://t.me/nicksavin" target="_blank" rel="noopener noreferrer">
                   Обсудить рекламу
                   <ArrowRight className="h-4 w-4" />
-                </Link>
+                </a>
               </Button>
             </div>
           </div>
