@@ -36,11 +36,11 @@ export const Header = () => {
       <div className="container-wide">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded-sm flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">N</span>
+          <Link to="/" className="flex items-center">
+            <div className="w-10 h-10 md:w-12 md:h-12 bg-primary rounded-sm flex items-center justify-center mr-1">
+              <span className="text-primary-foreground font-bold text-xl md:text-2xl">N</span>
             </div>
-            <span className="font-bold text-lg tracking-tight">NOIRDIG</span>
+            <span className="font-bold text-xl md:text-2xl tracking-tight">OIRDIG</span>
           </Link>
 
           {/* Desktop Navigation */}
