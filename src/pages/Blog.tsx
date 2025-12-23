@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
@@ -5,61 +6,37 @@ import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar } from "lucide-react";
-
-const articles = [
-  {
-    slug: "kak-sozdat-prodayushchiy-lending",
-    title: "Как создать продающий лендинг: 10 принципов конверсии",
-    excerpt: "Разбираем ключевые элементы высококонверсионного лендинга и частые ошибки, которые снижают продажи.",
-    category: "Сайты",
-    date: "2024-12-15",
-    readTime: "7 мин",
-  },
-  {
-    slug: "telegram-bot-dlya-biznesa",
-    title: "Telegram-бот для бизнеса: 5 сценариев автоматизации",
-    excerpt: "Какие задачи можно автоматизировать с помощью Telegram-бота и сколько это экономит времени.",
-    category: "Telegram-боты",
-    date: "2024-12-10",
-    readTime: "5 мин",
-  },
-  {
-    slug: "seo-osnovy-dlya-novogo-sayta",
-    title: "SEO-основы для нового сайта: что сделать до запуска",
-    excerpt: "Чек-лист технической SEO-оптимизации, которую нужно заложить на этапе разработки.",
-    category: "SEO",
-    date: "2024-12-05",
-    readTime: "8 мин",
-  },
-  {
-    slug: "pagespeed-optimizatsiya",
-    title: "Как достичь PageSpeed 90+ на любом сайте",
-    excerpt: "Практические шаги по оптимизации скорости загрузки: изображения, шрифты, код.",
-    category: "Разработка",
-    date: "2024-12-01",
-    readTime: "10 мин",
-  },
-  {
-    slug: "integratsiya-crm-s-saytom",
-    title: "Интеграция CRM с сайтом: зачем и как настроить",
-    excerpt: "Как автоматически передавать заявки в CRM и не терять клиентов.",
-    category: "Интеграции",
-    date: "2024-11-25",
-    readTime: "6 мин",
-  },
-  {
-    slug: "yandex-metrika-nastroyka-tseley",
-    title: "Настройка целей в Яндекс.Метрике: полный гайд",
-    excerpt: "Какие цели отслеживать на сайте и как правильно их настроить для аналитики.",
-    category: "Аналитика",
-    date: "2024-11-20",
-    readTime: "9 мин",
-  },
-];
-
-const categories = ["Все", "Сайты", "Telegram-боты", "SEO", "Разработка", "Аналитика", "Интеграции"];
+import { blogPosts, blogCategories, getPostsByCategory } from "@/data/blogPosts";
 
 const Blog = () => {
+  const [activeCategory, setActiveCategory] = useState("Все");
+  const filteredPosts = getPostsByCategory(activeCategory);
+
+  // Structured data for blog listing
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Блог NOIRDIG",
+    "description": "Полезные статьи о создании сайтов, Telegram-ботов, SEO-оптимизации и digital-маркетинге для бизнеса.",
+    "url": "https://noirdig.ru/blog/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "NOIRDIG",
+      "url": "https://noirdig.ru"
+    },
+    "blogPost": blogPosts.map(post => ({
+      "@type": "BlogPosting",
+      "headline": post.title,
+      "description": post.excerpt,
+      "datePublished": post.date,
+      "author": {
+        "@type": "Organization",
+        "name": post.author
+      },
+      "url": `https://noirdig.ru/blog/${post.slug}/`
+    }))
+  };
+
   return (
     <>
       <Helmet>
@@ -69,6 +46,17 @@ const Blog = () => {
           content="Полезные статьи о создании сайтов, Telegram-ботов, SEO-оптимизации и digital-маркетинге для бизнеса."
         />
         <link rel="canonical" href="https://noirdig.ru/blog/" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Блог NOIRDIG — Статьи о разработке" />
+        <meta property="og:description" content="Полезные статьи о создании сайтов, Telegram-ботов, SEO-оптимизации." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://noirdig.ru/blog/" />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
       </Helmet>
 
       <Layout>
@@ -84,11 +72,12 @@ const Blog = () => {
 
             {/* Categories */}
             <div className="flex flex-wrap gap-2 mb-12">
-              {categories.map((category) => (
+              {blogCategories.map((category) => (
                 <Button
                   key={category}
-                  variant={category === "Все" ? "gold" : "outline"}
+                  variant={category === activeCategory ? "gold" : "outline"}
                   size="sm"
+                  onClick={() => setActiveCategory(category)}
                 >
                   {category}
                 </Button>
@@ -97,14 +86,23 @@ const Blog = () => {
 
             {/* Articles grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {articles.map((article) => (
+              {filteredPosts.map((article) => (
                 <Link
                   key={article.slug}
                   to={`/blog/${article.slug}`}
                   className="card-noir group"
                 >
                   <div className="aspect-video bg-secondary rounded-lg mb-4 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
+                    {article.image ? (
+                      <img 
+                        src={article.image} 
+                        alt={article.title}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
+                    )}
                   </div>
 
                   <div className="flex items-center gap-2 mb-3 text-body-sm">
@@ -113,24 +111,32 @@ const Blog = () => {
                     <span className="text-muted-foreground">{article.readTime}</span>
                   </div>
 
-                  <h3 className="text-h4 mb-2 group-hover:text-primary transition-colors">
+                  <h2 className="text-h4 mb-2 group-hover:text-primary transition-colors">
                     {article.title}
-                  </h3>
+                  </h2>
                   <p className="text-body-sm text-muted-foreground mb-4">
                     {article.excerpt}
                   </p>
 
                   <div className="flex items-center gap-2 text-body-sm text-muted-foreground">
                     <Calendar className="h-4 w-4" />
-                    {new Date(article.date).toLocaleDateString("ru-RU", {
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                    })}
+                    <time dateTime={article.date}>
+                      {new Date(article.date).toLocaleDateString("ru-RU", {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric",
+                      })}
+                    </time>
                   </div>
                 </Link>
               ))}
             </div>
+
+            {filteredPosts.length === 0 && (
+              <div className="text-center py-12">
+                <p className="text-muted-foreground">Статей в этой категории пока нет</p>
+              </div>
+            )}
           </div>
         </section>
 
