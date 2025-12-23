@@ -163,10 +163,10 @@ const Portfolio = () => {
               Обсудим ваш проект и покажем, как можем помочь
             </p>
             <Button variant="gold" size="lg" asChild>
-              <Link to="/contacts">
+              <a href="https://t.me/nicksavin" target="_blank" rel="noopener noreferrer">
                 Обсудить проект
                 <ArrowRight className="h-4 w-4" />
-              </Link>
+              </a>
             </Button>
           </div>
         </section>

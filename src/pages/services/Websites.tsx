@@ -148,10 +148,10 @@ const Websites = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button variant="gold" size="lg" asChild>
-                  <Link to="/contacts">
+                  <a href="https://t.me/nicksavin" target="_blank" rel="noopener noreferrer">
                     Обсудить проект
                     <ArrowRight className="h-4 w-4" />
-                  </Link>
+                  </a>
                 </Button>
                 <Button variant="outline" size="lg" asChild>
                   <Link to="/portfolio">Смотреть портфолио</Link>
