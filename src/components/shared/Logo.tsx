@@ -8,9 +8,9 @@ interface LogoProps {
 
 export const Logo = ({ size = "md", showText = true, className = "" }: LogoProps) => {
   const sizes = {
-    sm: { box: "w-8 h-8", text: "text-lg", n: "text-base", globe: 14, cursor: 10 },
-    md: { box: "w-10 h-10", text: "text-xl", n: "text-xl", globe: 18, cursor: 12 },
-    lg: { box: "w-12 h-12", text: "text-2xl", n: "text-2xl", globe: 22, cursor: 14 },
+    sm: { box: "w-9 h-9", text: "text-xl", n: "text-lg", globe: 18, cursor: 12 },
+    md: { box: "w-11 h-11", text: "text-2xl", n: "text-xl", globe: 22, cursor: 14 },
+    lg: { box: "w-14 h-14", text: "text-3xl", n: "text-2xl", globe: 26, cursor: 16 },
   };
 
   const s = sizes[size];
