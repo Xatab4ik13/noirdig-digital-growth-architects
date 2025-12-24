@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+/* Font loaded via index.html with preload for better performance */
 
 @tailwind base;
 @tailwind components;
@@ -91,7 +91,9 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    /* Reduce CLS */
+    text-rendering: optimizeSpeed;
   }
 
   h1, h2, h3, h4, h5, h6 {
