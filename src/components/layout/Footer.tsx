@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
-import logoIcon from "@/assets/logo-noirdig-icon.png";
+import { Logo } from "@/components/shared/Logo";
 
 const footerLinks = {
   services: [
@@ -28,13 +28,8 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <img 
-                src={logoIcon} 
-                alt="NOIRDIG" 
-                className="h-8 w-auto"
-              />
-              <span className="font-bold text-xl tracking-tight">OIRDIG</span>
+            <Link to="/" className="inline-block mb-4">
+              <Logo size="sm" />
             </Link>
             <p className="text-muted-foreground text-body-sm mb-6">
               Поможем привлечь клиентов и увеличить продажи в онлайне. 
