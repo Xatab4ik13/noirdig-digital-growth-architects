@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/hooks/useTheme";
-import logoIcon from "@/assets/logo-noirdig-icon.png";
+import { Logo } from "@/components/shared/Logo";
 
 const navigation = [
   { name: "Главная", href: "/" },
@@ -35,13 +35,8 @@ export const Header = () => {
       <div className="container-wide">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <img 
-              src={logoIcon} 
-              alt="NOIRDIG" 
-              className="h-8 md:h-10 w-auto transition-transform duration-300 group-hover:scale-105"
-            />
-            <span className="font-bold text-xl md:text-2xl tracking-tight transition-colors duration-300 group-hover:text-primary">OIRDIG</span>
+          <Link to="/" className="group transition-transform duration-300 hover:scale-105">
+            <Logo size="md" />
           </Link>
 
           {/* Desktop Navigation */}
