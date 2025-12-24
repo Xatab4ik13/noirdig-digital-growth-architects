@@ -126,17 +126,12 @@ const TelegramBots = () => {
                 Автоматизируем продажи, поддержку и запись клиентов. Боты работают 24/7, 
                 снижают нагрузку на менеджеров и увеличивают конверсию.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="gold" size="lg" asChild>
-                  <a href="https://t.me/noirdig_bot" target="_blank" rel="noopener noreferrer">
-                    Обсудить бота
-                    <ArrowRight className="h-4 w-4" />
-                  </a>
-                </Button>
-                <Button variant="outline" size="lg" asChild>
-                  <Link to="/portfolio">Примеры ботов</Link>
-                </Button>
-              </div>
+              <Button variant="gold" size="lg" asChild>
+                <a href="https://t.me/noirdig_bot" target="_blank" rel="noopener noreferrer">
+                  Обсудить бота
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+              </Button>
             </div>
           </div>
         </section>
