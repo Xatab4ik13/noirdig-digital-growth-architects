@@ -20,20 +20,20 @@ export const HeroSection = () => {
       <div className="container-wide section-padding">
         <div className="max-w-4xl">
 
-          {/* Headline */}
-          <h1 className="text-h1 md:text-display mb-6 animate-fade-up delay-100">
+          {/* Headline - no animation delay for faster LCP */}
+          <h1 className="text-h1 md:text-display mb-6">
             Создаём сайты и Telegram-ботов,{" "}
             <span className="text-gradient">которые продают</span>
           </h1>
 
           {/* Subheadline */}
-          <p className="text-body-lg md:text-xl text-muted-foreground mb-8 max-w-2xl animate-fade-up delay-200">
+          <p className="text-body-lg md:text-xl text-muted-foreground mb-8 max-w-2xl">
             Поможем привлечь клиентов и увеличить продажи в онлайне. 
             Разрабатываем под ключ для малого бизнеса и B2B по всей России.
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-up delay-300">
+          <div className="flex flex-col sm:flex-row gap-4 mb-12">
             <Button variant="gold" size="xl" asChild>
               <a href="https://t.me/noirdig_bot" target="_blank" rel="noopener noreferrer">
                 Обсудить проект
@@ -46,7 +46,7 @@ export const HeroSection = () => {
           </div>
 
           {/* Benefits */}
-          <div className="flex flex-col sm:flex-row gap-6 animate-fade-up delay-400">
+          <div className="flex flex-col sm:flex-row gap-6">
             {benefits.map((benefit) => (
               <div key={benefit.text} className="flex items-center gap-2">
                 <benefit.icon className="h-5 w-5 text-primary" />

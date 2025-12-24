@@ -97,7 +97,11 @@ const Blog = () => {
                         src={article.image} 
                         alt={article.imageAlt || article.title}
                         className="w-full h-full object-cover"
-                        loading="lazy"
+                        loading={startIndex === 0 && visiblePosts.indexOf(article) < 3 ? "eager" : "lazy"}
+                        fetchPriority={startIndex === 0 && visiblePosts.indexOf(article) === 0 ? "high" : "auto"}
+                        decoding="async"
+                        width={400}
+                        height={225}
                       />
                     ) : (
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
