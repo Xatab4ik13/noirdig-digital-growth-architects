@@ -14,9 +14,8 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("noirdig-theme") as Theme;
       if (saved) return saved;
-      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     }
-    return "dark";
+    return "dark"; // Default to dark theme
   });
 
   useEffect(() => {
