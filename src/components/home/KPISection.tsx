@@ -1,5 +1,7 @@
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Gauge, MousePointerClick, Search, Target } from "lucide-react";
+import { useInView } from "@/hooks/useInView";
+import { useCountUp } from "@/hooks/useCountUp";
 
 const kpiCategories = [
   {
@@ -7,10 +9,10 @@ const kpiCategories = [
     title: "Core Web Vitals",
     description: "Скорость и качество загрузки",
     metrics: [
-      { label: "LCP", value: "≤ 2.0 сек", description: "Largest Contentful Paint" },
-      { label: "CLS", value: "≤ 0.10", description: "Cumulative Layout Shift" },
-      { label: "INP", value: "≤ 200 мс", description: "Interaction to Next Paint" },
-      { label: "PageSpeed", value: "90+", description: "Mobile score" },
+      { label: "LCP", value: "≤ 2.0 сек", numValue: 2, suffix: " сек", description: "Largest Contentful Paint" },
+      { label: "CLS", value: "≤ 0.10", numValue: 0.1, suffix: "", description: "Cumulative Layout Shift" },
+      { label: "INP", value: "≤ 200 мс", numValue: 200, suffix: " мс", description: "Interaction to Next Paint" },
+      { label: "PageSpeed", value: "90+", numValue: 90, suffix: "+", description: "Mobile score" },
     ],
   },
   {
@@ -18,9 +20,9 @@ const kpiCategories = [
     title: "Конверсия",
     description: "Эффективность воронки",
     metrics: [
-      { label: "CR сайта", value: "3-6%", description: "Для услуг и B2B" },
-      { label: "Рост заявок", value: "+20-60%", description: "После оптимизации" },
-      { label: "CR рекламы", value: "3-8%", description: "Клик → заявка" },
+      { label: "CR сайта", value: "3-6%", numValue: 6, suffix: "%", description: "Для услуг и B2B" },
+      { label: "Рост заявок", value: "+20-60%", numValue: 60, suffix: "%", description: "После оптимизации" },
+      { label: "CR рекламы", value: "3-8%", numValue: 8, suffix: "%", description: "Клик → заявка" },
     ],
   },
   {
@@ -28,8 +30,8 @@ const kpiCategories = [
     title: "SEO",
     description: "Органический рост",
     metrics: [
-      { label: "Индексация", value: "100%", description: "Ключевых страниц" },
-      { label: "Рост органики", value: "+30-120%", description: "За 3-4 месяца" },
+      { label: "Индексация", value: "100%", numValue: 100, suffix: "%", description: "Ключевых страниц" },
+      { label: "Рост органики", value: "+30-120%", numValue: 120, suffix: "%", description: "За 3-4 месяца" },
     ],
   },
   {
@@ -37,16 +39,31 @@ const kpiCategories = [
     title: "Telegram-боты",
     description: "Автоматизация",
     metrics: [
-      { label: "CR в действие", value: "15-35%", description: "Заявка/запись/заказ" },
-      { label: "Снижение нагрузки", value: "-20-40%", description: "На менеджера" },
+      { label: "CR в действие", value: "15-35%", numValue: 35, suffix: "%", description: "Заявка/запись/заказ" },
+      { label: "Снижение нагрузки", value: "-20-40%", numValue: 40, suffix: "%", description: "На менеджера" },
     ],
   },
 ];
 
+const AnimatedMetric = ({ numValue, suffix, isInView }: { numValue: number; suffix: string; isInView: boolean }) => {
+  const isDecimal = numValue < 1;
+  const multiplier = isDecimal ? 100 : 1;
+  const count = useCountUp(numValue * multiplier, 2000, isInView);
+  const displayValue = isDecimal ? (count / 100).toFixed(2) : count;
+  
+  return (
+    <span className="text-primary font-semibold tabular-nums">
+      {isDecimal ? "≤ " : ""}{displayValue}{suffix}
+    </span>
+  );
+};
+
 export const KPISection = () => {
+  const { ref, isInView } = useInView({ threshold: 0.2 });
+
   return (
     <section className="section-padding bg-card">
-      <div className="container-wide">
+      <div className="container-wide" ref={ref}>
         <SectionHeader
           badge="KPI и измерения"
           title="Стандарты NOIRDIG"
@@ -55,10 +72,18 @@ export const KPISection = () => {
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {kpiCategories.map((category) => (
-            <div key={category.title} className="bg-background border border-border rounded-xl p-6">
+          {kpiCategories.map((category, catIndex) => (
+            <div 
+              key={category.title} 
+              className={`bg-background border border-border rounded-xl p-6 transition-all duration-500 ${
+                isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
+              style={{ transitionDelay: `${catIndex * 150}ms` }}
+            >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                <div className={`w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center ${
+                  isInView ? "animate-bounce-in" : "opacity-0"
+                }`} style={{ animationDelay: `${catIndex * 150 + 200}ms` }}>
                   <category.icon className="h-5 w-5 text-primary" />
                 </div>
                 <div>
@@ -76,7 +101,11 @@ export const KPISection = () => {
                         {metric.description}
                       </span>
                     </div>
-                    <span className="text-primary font-semibold">{metric.value}</span>
+                    <AnimatedMetric 
+                      numValue={metric.numValue} 
+                      suffix={metric.suffix} 
+                      isInView={isInView} 
+                    />
                   </div>
                 ))}
               </div>
@@ -85,7 +114,9 @@ export const KPISection = () => {
         </div>
 
         {/* How we measure */}
-        <div className="mt-12 text-center">
+        <div className={`mt-12 text-center transition-all duration-700 ${
+          isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        }`} style={{ transitionDelay: "600ms" }}>
           <h4 className="font-semibold mb-4">Как измеряем</h4>
           <div className="flex flex-wrap justify-center gap-4">
             {[
@@ -93,10 +124,13 @@ export const KPISection = () => {
               "UTM-разметка источников",
               "Отчёты по воронке",
               "PageSpeed Insights",
-            ].map((item) => (
+            ].map((item, index) => (
               <span
                 key={item}
-                className="bg-secondary px-4 py-2 rounded-full text-body-sm"
+                className={`bg-secondary px-4 py-2 rounded-full text-body-sm transition-all duration-500 ${
+                  isInView ? "opacity-100 scale-100" : "opacity-0 scale-90"
+                }`}
+                style={{ transitionDelay: `${700 + index * 100}ms` }}
               >
                 {item}
               </span>
