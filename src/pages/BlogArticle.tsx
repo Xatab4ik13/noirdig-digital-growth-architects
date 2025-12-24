@@ -1,5 +1,6 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link, useParams, Navigate } from "react-router-dom";
+import { Link, useParams, Navigate, useLocation } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { Button } from "@/components/ui/button";
@@ -14,7 +15,59 @@ import {
 
 const BlogArticle = () => {
   const { articleSlug } = useParams();
+  const location = useLocation();
   const post = articleSlug ? getPostBySlug(articleSlug) : undefined;
+
+  // Плавный скролл к якорям при загрузке и клике
+  useEffect(() => {
+    // Функция для плавного скролла
+    const scrollToHash = (hash: string) => {
+      if (hash) {
+        const element = document.getElementById(hash.replace('#', ''));
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 100);
+        }
+      }
+    };
+
+    // Скролл при загрузке страницы с хешем
+    if (location.hash) {
+      scrollToHash(location.hash);
+    }
+
+    // Обработчик кликов по якорным ссылкам
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest('a[href^="#"]') as HTMLAnchorElement;
+      
+      if (anchor) {
+        e.preventDefault();
+        const hash = anchor.getAttribute('href');
+        if (hash) {
+          const element = document.getElementById(hash.replace('#', ''));
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Обновляем URL без перезагрузки
+            window.history.pushState(null, '', hash);
+          }
+        }
+      }
+    };
+
+    // Добавляем обработчик на контейнер статьи
+    const articleContent = document.querySelector('.prose');
+    if (articleContent) {
+      articleContent.addEventListener('click', handleAnchorClick);
+    }
+
+    return () => {
+      if (articleContent) {
+        articleContent.removeEventListener('click', handleAnchorClick);
+      }
+    };
+  }, [location.hash, post]);
 
   // Если пост не найден — редирект на 404
   if (!post) {
