@@ -24,7 +24,7 @@ export const Logo = ({ size = "md", showText = true, className = "" }: LogoProps
 
       {/* Text */}
       {showText && (
-        <span className={`font-bold ${s.text} tracking-tight`}>OIRDIG</span>
+        <span className={`font-bold ${s.text} tracking-tight transition-colors duration-300 group-hover:text-primary`}>OIRDIG</span>
       )}
 
       {/* Globe with cursor at the end */}
