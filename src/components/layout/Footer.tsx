@@ -10,7 +10,6 @@ const footerLinks = {
     { name: "Контекстная реклама", href: "/services/ads" },
   ],
   company: [
-    { name: "О студии", href: "/about" },
     { name: "Портфолио", href: "/portfolio" },
     { name: "Блог", href: "/blog" },
     { name: "Контакты", href: "/contacts" },
@@ -104,7 +103,7 @@ export const Footer = () => {
               <span className="font-medium">Telegram</span>
             </a>
             <p className="text-body-sm text-muted-foreground mt-3">
-              Отвечаем в течение 2 часов в рабочее время
+              Отвечаем в течение 1 часа
             </p>
           </div>
         </div>
