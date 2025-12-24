@@ -33,7 +33,7 @@ const Contacts = () => {
               {/* Main CTA - Telegram */}
               <Button variant="gold" size="xl" asChild className="mb-4">
                 <a
-                  href="https://t.me/noirdig"
+                  href="https://t.me/noirdig_bot"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

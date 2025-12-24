@@ -113,7 +113,7 @@ export const Header = () => {
             </Button>
 
             <Button variant="gold" className="hidden md:flex" asChild>
-              <a href="https://t.me/nicksavin" target="_blank" rel="noopener noreferrer">Обсудить проект</a>
+              <a href="https://t.me/noirdig_bot" target="_blank" rel="noopener noreferrer">Обсудить проект</a>
             </Button>
 
             {/* Mobile menu button */}
@@ -174,7 +174,7 @@ export const Header = () => {
                   )}
                 </Button>
                 <Button variant="gold" className="flex-1" asChild>
-                  <a href="https://t.me/nicksavin" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
+                  <a href="https://t.me/noirdig_bot" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
                     Обсудить проект
                   </a>
                 </Button>

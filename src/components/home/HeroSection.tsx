@@ -35,7 +35,7 @@ export const HeroSection = () => {
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-up delay-300">
             <Button variant="gold" size="xl" asChild>
-              <a href="https://t.me/nicksavin" target="_blank" rel="noopener noreferrer">
+              <a href="https://t.me/noirdig_bot" target="_blank" rel="noopener noreferrer">
                 Обсудить проект
                 <ArrowRight className="h-5 w-5" />
               </a>

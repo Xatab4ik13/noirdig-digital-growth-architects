@@ -163,7 +163,7 @@ const Portfolio = () => {
               Обсудим ваш проект и покажем, как можем помочь
             </p>
             <Button variant="gold" size="lg" asChild>
-              <a href="https://t.me/nicksavin" target="_blank" rel="noopener noreferrer">
+              <a href="https://t.me/noirdig_bot" target="_blank" rel="noopener noreferrer">
                 Обсудить проект
                 <ArrowRight className="h-4 w-4" />
               </a>

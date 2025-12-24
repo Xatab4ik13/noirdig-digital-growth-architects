@@ -97,7 +97,7 @@ export const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Мессенджер</h4>
             <a
-              href="https://t.me/noirdig"
+              href="https://t.me/noirdig_bot"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-secondary hover:bg-secondary/80 text-secondary-foreground px-4 py-3 rounded-lg transition-colors"
