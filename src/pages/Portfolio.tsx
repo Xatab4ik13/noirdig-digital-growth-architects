@@ -75,7 +75,7 @@ const cases = [
   },
 ];
 
-const filters = ["Все", "Лендинг", "Корпоративный сайт", "Интернет-магазин", "Telegram-бот"];
+
 
 const Portfolio = () => {
   return (
@@ -100,18 +100,6 @@ const Portfolio = () => {
               description="Примеры выполненных работ с измеримыми результатами"
             />
 
-            {/* Filters */}
-            <div className="flex flex-wrap gap-2 mb-12">
-              {filters.map((filter) => (
-                <Button
-                  key={filter}
-                  variant={filter === "Все" ? "gold" : "outline"}
-                  size="sm"
-                >
-                  {filter}
-                </Button>
-              ))}
-            </div>
 
             {/* Cases grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
