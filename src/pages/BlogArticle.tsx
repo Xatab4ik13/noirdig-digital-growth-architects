@@ -2,11 +2,15 @@ import { Helmet } from "react-helmet-async";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
-import { SectionHeader } from "@/components/shared/SectionHeader";
-import { TelegramCTA } from "@/components/shared/TelegramCTA";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar, Clock, ArrowLeft } from "lucide-react";
+import { Calendar, Clock, ArrowLeft } from "lucide-react";
 import { getPostBySlug, getRelatedPosts } from "@/data/blogPosts";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const BlogArticle = () => {
   const { articleSlug } = useParams();
@@ -207,19 +211,29 @@ const BlogArticle = () => {
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
 
-            {/* FAQ Section - rendered from data */}
+            {/* FAQ Section - Accordion */}
             {post.faq && post.faq.length > 0 && (
-              <div className="mb-12">
-                <div className="space-y-4">
+              <div className="mb-12 border-t border-border pt-12">
+                <h2 className="text-h3 mb-6">Часто задаваемые вопросы</h2>
+                <Accordion type="single" collapsible className="space-y-3">
                   {post.faq.map((item, index) => (
-                    <div key={index} className="bg-secondary/50 rounded-lg p-6">
-                      <h3 className="text-h4 text-foreground mb-3">{item.question}</h3>
-                      <p className="text-muted-foreground leading-relaxed">{item.answer}</p>
-                    </div>
+                    <AccordionItem 
+                      key={index} 
+                      value={`faq-${index}`}
+                      className="bg-secondary/50 rounded-lg border-none px-6 data-[state=open]:bg-secondary"
+                    >
+                      <AccordionTrigger className="text-left text-foreground font-medium hover:no-underline py-5 [&[data-state=open]>svg]:rotate-180">
+                        {item.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
+                        {item.answer}
+                      </AccordionContent>
+                    </AccordionItem>
                   ))}
-                </div>
+                </Accordion>
               </div>
             )}
+
 
 
             {/* Related articles */}
