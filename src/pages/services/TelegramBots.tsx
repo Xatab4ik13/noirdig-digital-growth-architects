@@ -128,7 +128,7 @@ const TelegramBots = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button variant="gold" size="lg" asChild>
-                  <a href="https://t.me/nicksavin" target="_blank" rel="noopener noreferrer">
+                  <a href="https://t.me/noirdig_bot" target="_blank" rel="noopener noreferrer">
                     Обсудить бота
                     <ArrowRight className="h-4 w-4" />
                   </a>
@@ -187,7 +187,7 @@ const TelegramBots = () => {
                     ))}
                   </ul>
                   <Button variant={pkg.popular ? "gold" : "outline"} className="w-full" asChild>
-                    <a href="https://t.me/noirdig" target="_blank" rel="noopener noreferrer">Подключить</a>
+                    <a href="https://t.me/noirdig_bot" target="_blank" rel="noopener noreferrer">Подключить</a>
                   </Button>
                 </div>
               ))}

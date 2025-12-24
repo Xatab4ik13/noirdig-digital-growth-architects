@@ -17,7 +17,7 @@ export const CTASection = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Button variant="gold" size="xl" asChild>
               <a
-                href="https://t.me/noirdig"
+                href="https://t.me/noirdig_bot"
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -18,7 +18,7 @@ export const TelegramCTA = ({
       </div>
       <Button variant="gold" asChild className="shrink-0">
         <a
-          href="https://t.me/noirdig"
+          href="https://t.me/noirdig_bot"
           target="_blank"
           rel="noopener noreferrer"
         >
