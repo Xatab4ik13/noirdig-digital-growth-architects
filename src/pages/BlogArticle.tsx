@@ -20,21 +20,26 @@ const BlogArticle = () => {
 
   // Плавный скролл к якорям при загрузке и клике
   useEffect(() => {
-    // Функция для плавного скролла
-    const scrollToHash = (hash: string) => {
-      if (hash) {
-        const element = document.getElementById(hash.replace('#', ''));
-        if (element) {
-          setTimeout(() => {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 100);
-        }
+    // Функция для плавного скролла с учетом фиксированного header
+    const scrollToElement = (elementId: string) => {
+      const element = document.getElementById(elementId);
+      if (element) {
+        const headerOffset = 100; // Отступ для фиксированного header
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
       }
     };
 
     // Скролл при загрузке страницы с хешем
     if (location.hash) {
-      scrollToHash(location.hash);
+      setTimeout(() => {
+        scrollToElement(location.hash.replace('#', ''));
+      }, 200);
     }
 
     // Обработчик кликов по якорным ссылкам
@@ -45,27 +50,20 @@ const BlogArticle = () => {
       if (anchor) {
         e.preventDefault();
         const hash = anchor.getAttribute('href');
-        if (hash) {
-          const element = document.getElementById(hash.replace('#', ''));
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            // Обновляем URL без перезагрузки
-            window.history.pushState(null, '', hash);
-          }
+        if (hash && hash.startsWith('#')) {
+          const elementId = hash.replace('#', '');
+          scrollToElement(elementId);
+          // Обновляем URL без перезагрузки
+          window.history.pushState(null, '', hash);
         }
       }
     };
 
-    // Добавляем обработчик на контейнер статьи
-    const articleContent = document.querySelector('.prose');
-    if (articleContent) {
-      articleContent.addEventListener('click', handleAnchorClick);
-    }
+    // Добавляем обработчик на весь документ для работы с TOC
+    document.addEventListener('click', handleAnchorClick);
 
     return () => {
-      if (articleContent) {
-        articleContent.removeEventListener('click', handleAnchorClick);
-      }
+      document.removeEventListener('click', handleAnchorClick);
     };
   }, [location.hash, post]);
 

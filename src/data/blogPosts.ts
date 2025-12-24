@@ -576,11 +576,6 @@ export const blogPosts: BlogPost[] = [
         <li><strong><a href="/services/support">Поддержка и развитие</a></strong> перестают быть "по остаточному принципу" — вы планово улучшаете точки, где теряете деньги.</li>
       </ul>
 
-      <div class="cta-block">
-        <h2>Хотите профессиональный аудит сайта?</h2>
-        <p>Мы проводим экспресс-аудит с конкретными рекомендациями: что исправить, в каком порядке и какой эффект ожидать. После — можем <a href="/services/support">взять сайт на поддержку</a> и внедрить улучшения.</p>
-        <a href="https://t.me/noirdig" class="cta-button" target="_blank" rel="noopener noreferrer">Заказать аудит</a>
-      </div>
     `,
     relatedSlugs: ["kak-sozdat-prodayushchiy-lending", "kontekst-vs-seo-2026", "pagespeed-optimizatsiya"],
     faq: [
@@ -812,11 +807,6 @@ export const blogPosts: BlogPost[] = [
         <li>✓ Подключены Метрика и цели</li>
       </ul>
 
-      <div class="cta-block">
-        <h2>Хотите продающий лендинг под ключ?</h2>
-        <p>Мы делаем <a href="/services/websites">разработку лендингов под ключ</a>: от прототипа и текстов до дизайна, вёрстки и аналитики. Обычно начинаем с короткого брифа и предлагаем 2–3 варианта структуры: «быстрый MVP», «оптимальный», «расширенный».</p>
-        <a href="https://t.me/nicksavin" class="cta-button" target="_blank" rel="noopener noreferrer">Связаться с нами</a>
-      </div>
     `,
     relatedSlugs: ["kontekst-vs-seo-2026", "pagespeed-optimizatsiya", "yandex-metrika-nastroyka-tseley"],
     faq: [
@@ -1030,11 +1020,6 @@ export const blogPosts: BlogPost[] = [
         <li>✅ метки источника (UTM), чтобы понимать, что работает</li>
       </ul>
 
-      <div class="cta-block">
-        <h2>Хотите Telegram-бота под ключ под вашу задачу?</h2>
-        <p>Мы делаем <a href="/services/telegram-bots">разработку Telegram-ботов под ключ</a>: от сценария и текстов до интеграций, тестирования и запуска. Обычно начинаем с короткого брифа и предлагаем 2–3 варианта логики: «быстрый MVP», «оптимальный», «расширенный».</p>
-        <a href="https://t.me/nicksavin" class="cta-button" target="_blank" rel="noopener noreferrer">Связаться с нами</a>
-      </div>
     `,
     relatedSlugs: ["kak-sozdat-prodayushchiy-lending", "kontekst-vs-seo-2026"],
     faq: [
@@ -1300,11 +1285,6 @@ export const blogPosts: BlogPost[] = [
       
       <p>Лучший вариант для студии, которая делает сайты под ключ, Telegram-ботов, контекстную рекламу, поддержку и развитие — это <strong>система, где каждый канал усиливает другой</strong>.</p>
 
-      <div class="cta-block">
-        <h2>Хотите без «слива»?</h2>
-        <p>На практике это выглядит так: мы приводим в порядок сайт и посадочные, настраиваем аналитику, запускаем контекст с тестами, параллельно строим SEO-фундамент и контент, а для роста конверсии подключаем <a href="/services/telegram-bots">Telegram-бота</a> (квиз/прогрев/поддержка). В итоге лиды появляются быстро — и при этом вы постепенно снижаете стоимость привлечения.</p>
-        <a href="https://t.me/nicksavin" class="cta-button" target="_blank" rel="noopener noreferrer">Обсудить стратегию</a>
-      </div>
     `,
     relatedSlugs: ["kak-sozdat-prodayushchiy-lending", "telegram-bot-dlya-biznesa", "yandex-metrika-nastroyka-tseley"],
     faq: [
