@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -25,17 +25,40 @@ const navigation = [
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const { theme, toggleTheme } = useTheme();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const isActive = (href: string) => location.pathname === href;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled 
+          ? "bg-background/70 backdrop-blur-xl border-b border-border/50 shadow-lg shadow-background/5" 
+          : "bg-background/80 backdrop-blur-lg border-b border-border"
+      }`}
+    >
       <div className="container-wide">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className={`flex items-center justify-between transition-all duration-300 ${
+          scrolled ? "h-14 md:h-16" : "h-16 md:h-20"
+        }`}>
           {/* Logo */}
-          <Link to="/" className="group transition-transform duration-300 hover:scale-105">
+          <Link 
+            to="/" 
+            className={`group transition-all duration-300 hover:scale-105 ${
+              scrolled ? "scale-90" : "scale-100"
+            }`}
+          >
             <Logo size="md" />
           </Link>
 
