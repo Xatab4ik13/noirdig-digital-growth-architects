@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle, Zap, TrendingUp, Shield } from "lucide-react";
+import { ArrowRight, Zap, TrendingUp, Shield } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const benefits = [
   { icon: Zap, text: "Запуск от 3 дней" },
@@ -8,7 +9,46 @@ const benefits = [
   { icon: Shield, text: "Гарантия и поддержка" },
 ];
 
+const slogans = [
+  "Превращаем посетителей в клиентов",
+  "Автоматизируем продажи 24/7",
+  "Увеличиваем конверсию в 2-3 раза",
+  "Создаём системы для роста бизнеса",
+  "Экономим ваше время и бюджет",
+];
+
 export const HeroSection = () => {
+  const [currentSlogan, setCurrentSlogan] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const slogan = slogans[currentSlogan];
+    const typeSpeed = isDeleting ? 30 : 50;
+    const pauseTime = 2000;
+
+    if (!isDeleting && displayedText === slogan) {
+      const timeout = setTimeout(() => setIsDeleting(true), pauseTime);
+      return () => clearTimeout(timeout);
+    }
+
+    if (isDeleting && displayedText === "") {
+      setIsDeleting(false);
+      setCurrentSlogan((prev) => (prev + 1) % slogans.length);
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      setDisplayedText((prev) =>
+        isDeleting
+          ? slogan.substring(0, prev.length - 1)
+          : slogan.substring(0, prev.length + 1)
+      );
+    }, typeSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [displayedText, isDeleting, currentSlogan]);
+
   return (
     <section className="relative overflow-hidden">
       {/* Background decoration */}
@@ -26,11 +66,13 @@ export const HeroSection = () => {
             <span className="text-gradient">которые продают</span>
           </h1>
 
-          {/* Subheadline */}
-          <p className="text-body-lg md:text-xl text-muted-foreground mb-8 max-w-2xl">
-            Поможем привлечь клиентов и увеличить продажи в онлайне. 
-            Разрабатываем под ключ для малого бизнеса и B2B по всей России.
-          </p>
+          {/* Animated Subheadline */}
+          <div className="h-16 md:h-12 mb-8 max-w-2xl">
+            <p className="text-body-lg md:text-xl text-muted-foreground">
+              {displayedText}
+              <span className="inline-block w-0.5 h-6 bg-primary ml-1 animate-pulse" />
+            </p>
+          </div>
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
