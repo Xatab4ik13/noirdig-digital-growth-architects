@@ -18,13 +18,13 @@ export const Logo = ({ size = "md", showText = true, className = "" }: LogoProps
   return (
     <div className={`flex items-center gap-1.5 group ${className}`}>
       {/* N box */}
-      <div className={`${s.box} bg-gradient-to-br from-primary to-primary/80 rounded-sm flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-110`}>
+      <div className={`${s.box} bg-gradient-to-br from-primary to-primary/80 rounded-sm flex items-center justify-center shadow-md transition-all duration-300 group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-lg group-hover:shadow-primary/30`}>
         <span className={`text-primary-foreground font-bold ${s.n}`}>N</span>
       </div>
 
       {/* Text */}
       {showText && (
-        <span className={`font-bold ${s.text} tracking-tight transition-colors duration-300 group-hover:text-primary`}>OIRDIG</span>
+        <span className={`font-bold ${s.text} tracking-tight`}>OIRDIG</span>
       )}
 
       {/* Globe with cursor at the end */}
