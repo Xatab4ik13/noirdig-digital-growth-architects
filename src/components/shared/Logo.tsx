@@ -16,33 +16,30 @@ export const Logo = ({ size = "md", showText = true, className = "" }: LogoProps
   const s = sizes[size];
 
   return (
-    <div className={`flex items-center gap-1.5 ${className}`}>
-      {/* Icon group */}
-      <div className="flex items-center">
-        {/* N box */}
-        <div className={`${s.box} bg-gradient-to-br from-primary to-primary/80 rounded-sm flex items-center justify-center shadow-md`}>
-          <span className={`text-primary-foreground font-bold ${s.n}`}>N</span>
-        </div>
-        
-        {/* Globe with cursor */}
-        <div className="relative -ml-2">
-          <Globe 
-            size={s.globe} 
-            className="text-primary" 
-            strokeWidth={2}
-          />
-          <MousePointer2 
-            size={s.cursor} 
-            className="absolute -bottom-0.5 -right-1 text-foreground fill-foreground" 
-            strokeWidth={1.5}
-          />
-        </div>
+    <div className={`flex items-center gap-1.5 group ${className}`}>
+      {/* N box */}
+      <div className={`${s.box} bg-gradient-to-br from-primary to-primary/80 rounded-sm flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-110`}>
+        <span className={`text-primary-foreground font-bold ${s.n}`}>N</span>
       </div>
 
       {/* Text */}
       {showText && (
         <span className={`font-bold ${s.text} tracking-tight`}>OIRDIG</span>
       )}
+
+      {/* Globe with cursor at the end */}
+      <div className="relative ml-0.5 transition-transform duration-300 group-hover:rotate-12">
+        <Globe 
+          size={s.globe} 
+          className="text-primary animate-[spin_8s_linear_infinite]" 
+          strokeWidth={2}
+        />
+        <MousePointer2 
+          size={s.cursor} 
+          className="absolute -bottom-0.5 -right-1 text-foreground fill-foreground transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5" 
+          strokeWidth={1.5}
+        />
+      </div>
     </div>
   );
 };
