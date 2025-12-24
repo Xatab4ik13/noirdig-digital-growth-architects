@@ -200,9 +200,26 @@ const BlogArticle = () => {
                 prose-li:my-0
                 prose-strong:text-foreground
                 prose-blockquote:my-6
-                prose-a:text-primary prose-a:no-underline hover:prose-a:underline"
+                prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+                prose-table:w-full prose-table:my-8 prose-table:border-collapse
+                prose-th:bg-secondary prose-th:text-foreground prose-th:font-semibold prose-th:p-3 prose-th:text-left prose-th:border prose-th:border-border
+                prose-td:p-3 prose-td:border prose-td:border-border prose-td:text-muted-foreground"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
+
+            {/* FAQ Section - rendered from data */}
+            {post.faq && post.faq.length > 0 && (
+              <div className="mb-12">
+                <div className="space-y-4">
+                  {post.faq.map((item, index) => (
+                    <div key={index} className="bg-secondary/50 rounded-lg p-6">
+                      <h3 className="text-h4 text-foreground mb-3">{item.question}</h3>
+                      <p className="text-muted-foreground leading-relaxed">{item.answer}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
 
             {/* Related articles */}
