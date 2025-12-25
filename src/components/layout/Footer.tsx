@@ -43,11 +43,11 @@ export const Footer = () => {
                 hello@noirdig.ru
               </a>
               <a
-                href="tel:+79001234567"
+                href="tel:+79999853914"
                 className="flex items-center gap-2 text-body-sm text-muted-foreground hover:text-primary transition-colors"
               >
                 <Phone className="h-4 w-4" />
-                +7 (900) 123-45-67
+                +7 999 985 39 14
               </a>
               <div className="flex items-center gap-2 text-body-sm text-muted-foreground">
                 <MapPin className="h-4 w-4" />
