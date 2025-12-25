@@ -1,6 +1,9 @@
 import monarchHero from "@/assets/portfolio/monarch-hero.jpg";
 import monarchTeam from "@/assets/portfolio/monarch-team.jpg";
 import monarchGallery from "@/assets/portfolio/monarch-gallery.jpg";
+import balticgroomHero from "@/assets/portfolio/balticgroom-hero.jpg";
+import balticgroomServices from "@/assets/portfolio/balticgroom-services.jpg";
+import balticgroomAdvantages from "@/assets/portfolio/balticgroom-advantages.jpg";
 
 export interface PortfolioCase {
   id: string;
@@ -80,6 +83,59 @@ export const portfolioCases: PortfolioCase[] = [
       conversion: [
         { label: "CR онлайн-записи", value: "8.5%" },
         { label: "Снижение звонков", value: "-35%" },
+      ],
+    },
+  },
+  {
+    id: "baltic-groom",
+    category: "Лендинг",
+    industry: "Груминг",
+    title: "Baltic Groom — груминг-салон для собак и кошек в Калининграде",
+    description: "Разработали современный лендинг для груминг-салона с удобной записью через мессенджеры, презентацией услуг и блоком преимуществ.",
+    fullDescription: "Baltic Groom — профессиональный груминг-салон в Калининграде, где заботятся о собаках и кошках. Мы создали светлый, дружелюбный лендинг с акцентом на персиковые тона. Сайт включает полный каталог услуг (стрижка, экспресс-линька, тримминг, груминг кошек), блок преимуществ с гарантией качества, интеграцию с Telegram-ботом, WhatsApp и ВКонтакте для удобной записи клиентов.",
+    heroImage: balticgroomHero,
+    heroImageAlt: "Главная страница груминг-салона Baltic Groom с корги в ванной",
+    gallery: [
+      {
+        image: balticgroomHero,
+        alt: "Главный экран сайта Baltic Groom с собакой в ванной и кнопкой записи",
+        title: "Главная страница",
+      },
+      {
+        image: balticgroomServices,
+        alt: "Секция услуг груминг-салона Baltic Groom с фотографиями собак и кошек",
+        title: "Услуги салона",
+      },
+      {
+        image: balticgroomAdvantages,
+        alt: "Блок преимуществ Baltic Groom: опытные мастера, профессиональная косметика, гарантия",
+        title: "Преимущества",
+      },
+    ],
+    stack: ["Tilda", "Telegram Bot", "WhatsApp API"],
+    timeline: "1.5 недели",
+    metrics: [
+      { label: "PageSpeed", value: "88" },
+      { label: "Конверсия записи", value: "6.2%" },
+    ],
+    tasks: [
+      "Разработали дружелюбный дизайн в светлых тонах с персиковыми акцентами",
+      "Создали структурированный каталог услуг с фотографиями работ",
+      "Интегрировали запись через Telegram-бот, WhatsApp и ВКонтакте",
+      "Добавили блок преимуществ: опытные мастера, профессиональная косметика, гарантия 3 дня",
+      "Оптимизировали для мобильных устройств",
+      "Настроили SEO для локального продвижения в Калининграде",
+    ],
+    kpiDetails: {
+      vitals: [
+        { label: "LCP", value: "≤ 2.2 сек" },
+        { label: "CLS", value: "≤ 0.1" },
+        { label: "INP", value: "≤ 200 мс" },
+        { label: "PageSpeed Mobile", value: "88" },
+      ],
+      conversion: [
+        { label: "CR записи в мессенджерах", value: "6.2%" },
+        { label: "Рост заявок", value: "+45%" },
       ],
     },
   },
