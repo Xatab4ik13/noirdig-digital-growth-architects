@@ -8,6 +8,9 @@ import toprecordsHero from "@/assets/portfolio/toprecords-hero.jpg";
 import toprecordsAbout from "@/assets/portfolio/toprecords-about.jpg";
 import toprecordsBlog from "@/assets/portfolio/toprecords-blog.jpg";
 import wowmidnightHero from "@/assets/portfolio/wowmidnight-hero.jpg";
+import wowmidnightContent from "@/assets/portfolio/wowmidnight-content.jpg";
+import wowmidnightFaq from "@/assets/portfolio/wowmidnight-faq.jpg";
+import wowmidnightCart from "@/assets/portfolio/wowmidnight-cart.jpg";
 export interface PortfolioCase {
   id: string;
   category: string;
