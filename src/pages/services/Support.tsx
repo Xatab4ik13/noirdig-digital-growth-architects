@@ -5,6 +5,12 @@ import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { TelegramCTA } from "@/components/shared/TelegramCTA";
 import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { ArrowRight, Check, Shield, Clock, Wrench, Database, RefreshCw, Headphones } from "lucide-react";
 
 const services = [
@@ -54,7 +60,44 @@ const packages = [
   },
 ];
 
+const faqs = [
+  {
+    question: "Можете взять на поддержку сайт, сделанный не вами?",
+    answer: "Да, берём на поддержку сайты на любых CMS и фреймворках. Сначала проведём аудит и оценим состояние проекта.",
+  },
+  {
+    question: "Что если понадобится больше часов?",
+    answer: "Дополнительные часы оплачиваются отдельно по фиксированной ставке. Всегда предупреждаем заранее, если работа выходит за рамки пакета.",
+  },
+  {
+    question: "Как быстро реагируете на критические проблемы?",
+    answer: "Критические проблемы (сайт не работает) решаем в приоритетном порядке, обычно в течение 1-4 часов в зависимости от тарифа.",
+  },
+  {
+    question: "Делаете ли резервные копии?",
+    answer: "Да, ежедневные бэкапы входят во все тарифы. Храним копии за последние 30 дней. Можем восстановить сайт в любой момент.",
+  },
+  {
+    question: "Можно ли менять тариф?",
+    answer: "Да, можете перейти на другой тариф в любой момент. Перерасчёт делаем пропорционально оставшемуся периоду.",
+  },
+];
+
 const Support = () => {
+  // FAQ Schema для SEO
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
   return (
     <>
       <Helmet>
@@ -64,6 +107,9 @@ const Support = () => {
           content="Техническая поддержка сайтов: мониторинг, бэкапы, обновления, доработки. Работаем оперативно, отчитываемся ежемесячно."
         />
         <link rel="canonical" href="https://noirdig.ru/services/support/" />
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchema)}
+        </script>
       </Helmet>
 
       <Layout>
@@ -137,6 +183,23 @@ const Support = () => {
                   </Button>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="section-padding">
+          <div className="container-wide">
+            <SectionHeader badge="FAQ" title="Вопросы по поддержке" />
+            <div className="max-w-3xl">
+              <Accordion type="single" collapsible className="space-y-4">
+                {faqs.map((faq, index) => (
+                  <AccordionItem key={index} value={`item-${index}`} className="card-noir border-none">
+                    <AccordionTrigger className="text-left hover:no-underline">{faq.question}</AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">{faq.answer}</AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
             </div>
           </div>
         </section>

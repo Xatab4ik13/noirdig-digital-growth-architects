@@ -115,6 +115,20 @@ const faqs = [
 ];
 
 const Websites = () => {
+  // FAQ Schema для SEO
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
   return (
     <>
       <Helmet>
@@ -124,6 +138,9 @@ const Websites = () => {
           content="Разработка лендингов, корпоративных сайтов и интернет-магазинов. Современный дизайн, PageSpeed 90+, SEO-оптимизация. От 15 000 ₽."
         />
         <link rel="canonical" href="https://noirdig.ru/services/websites/" />
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchema)}
+        </script>
       </Helmet>
 
       <Layout>

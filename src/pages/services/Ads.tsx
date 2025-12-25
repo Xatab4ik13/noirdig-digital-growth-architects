@@ -5,6 +5,12 @@ import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { TelegramCTA } from "@/components/shared/TelegramCTA";
 import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { ArrowRight, Check, Target, BarChart3, Settings, TrendingUp } from "lucide-react";
 
 const services = [
@@ -50,7 +56,44 @@ const packages = [
   },
 ];
 
+const faqs = [
+  {
+    question: "Какой минимальный рекламный бюджет?",
+    answer: "Рекомендуем от 30 000 ₽/мес на рекламный бюджет для получения статистически значимых данных. Но можно начать и с меньшего для тестирования ниши.",
+  },
+  {
+    question: "Через сколько будут первые заявки?",
+    answer: "Первые заявки обычно появляются в первую неделю после запуска. Стабильный поток — через 2-4 недели после оптимизации кампаний.",
+  },
+  {
+    question: "Работаете ли с Google Ads?",
+    answer: "В текущих условиях фокусируемся на Яндекс Директ как основном источнике трафика для российского рынка.",
+  },
+  {
+    question: "Как отслеживаете эффективность?",
+    answer: "Настраиваем сквозную аналитику: Яндекс.Метрика, цели, колл-трекинг. Вы видите, сколько стоит каждая заявка и откуда она пришла.",
+  },
+  {
+    question: "Можно ли приостановить рекламу?",
+    answer: "Да, можете приостановить в любой момент. Рекламный бюджет остаётся на вашем аккаунте Директа.",
+  },
+];
+
 const Ads = () => {
+  // FAQ Schema для SEO
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
   return (
     <>
       <Helmet>
@@ -60,6 +103,9 @@ const Ads = () => {
           content="Настройка и ведение контекстной рекламы в Яндекс Директ. Приводим целевых клиентов с измеримым результатом."
         />
         <link rel="canonical" href="https://noirdig.ru/services/ads/" />
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchema)}
+        </script>
       </Helmet>
 
       <Layout>
@@ -138,6 +184,23 @@ const Ads = () => {
                   </Button>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="section-padding">
+          <div className="container-wide">
+            <SectionHeader badge="FAQ" title="Вопросы по рекламе" />
+            <div className="max-w-3xl">
+              <Accordion type="single" collapsible className="space-y-4">
+                {faqs.map((faq, index) => (
+                  <AccordionItem key={index} value={`item-${index}`} className="card-noir border-none">
+                    <AccordionTrigger className="text-left hover:no-underline">{faq.question}</AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">{faq.answer}</AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
             </div>
           </div>
         </section>
