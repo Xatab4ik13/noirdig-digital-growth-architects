@@ -4,6 +4,9 @@ import monarchGallery from "@/assets/portfolio/monarch-gallery.jpg";
 import balticgroomHero from "@/assets/portfolio/balticgroom-hero.jpg";
 import balticgroomServices from "@/assets/portfolio/balticgroom-services.jpg";
 import balticgroomAdvantages from "@/assets/portfolio/balticgroom-advantages.jpg";
+import toprecordsHero from "@/assets/portfolio/toprecords-hero.jpg";
+import toprecordsAbout from "@/assets/portfolio/toprecords-about.jpg";
+import toprecordsBlog from "@/assets/portfolio/toprecords-blog.jpg";
 
 export interface PortfolioCase {
   id: string;
@@ -136,6 +139,59 @@ export const portfolioCases: PortfolioCase[] = [
       conversion: [
         { label: "CR записи в мессенджерах", value: "6.2%" },
         { label: "Рост заявок", value: "+45%" },
+      ],
+    },
+  },
+  {
+    id: "top-records",
+    category: "Многостраничный сайт",
+    industry: "Музыка",
+    title: "Top Records — студия звукозаписи в Санкт-Петербурге",
+    description: "Разработали многостраничный сайт для студии звукозаписи с 15-летним опытом: блог, прайс-лист, интеграция аудиоплеера и современный тёмный дизайн.",
+    fullDescription: "Top Records — профессиональная студия звукозаписи в Санкт-Петербурге с более чем 15-летним опытом работы. Мы создали современный многостраничный сайт в тёмных тонах с фиолетово-оранжевыми акцентами. Проект включает страницы: главная с hero-секцией и аудиоплеером, о студии с презентацией оборудования и команды, блог со статьями о звукозаписи, прайс-лист услуг и контакты. Интегрирован кастомный аудиоплеер для прослушивания примеров работ.",
+    heroImage: toprecordsHero,
+    heroImageAlt: "Главная страница студии звукозаписи Top Records с аудиоплеером",
+    gallery: [
+      {
+        image: toprecordsHero,
+        alt: "Hero-секция сайта Top Records с микрофоном и кнопкой звонка",
+        title: "Главная страница",
+      },
+      {
+        image: toprecordsAbout,
+        alt: "Страница о студии Top Records с описанием преимуществ",
+        title: "О студии",
+      },
+      {
+        image: toprecordsBlog,
+        alt: "Студийный блог Top Records со статьями о звукозаписи",
+        title: "Блог",
+      },
+    ],
+    stack: ["WordPress", "Custom Audio Player", "SEO"],
+    timeline: "3 недели",
+    metrics: [
+      { label: "PageSpeed", value: "85" },
+      { label: "Органический трафик", value: "+120%" },
+    ],
+    tasks: [
+      "Разработали премиальный тёмный дизайн с градиентными акцентами",
+      "Создали многостраничную структуру: главная, о студии, блог, цены, контакты",
+      "Интегрировали кастомный аудиоплеер для демонстрации работ",
+      "Запустили студийный блог с SEO-оптимизированными статьями",
+      "Настроили локальное SEO для продвижения в Санкт-Петербурге",
+      "Оптимизировали скорость загрузки и Core Web Vitals",
+    ],
+    kpiDetails: {
+      vitals: [
+        { label: "LCP", value: "≤ 2.4 сек" },
+        { label: "CLS", value: "≤ 0.1" },
+        { label: "INP", value: "≤ 200 мс" },
+        { label: "PageSpeed Mobile", value: "85" },
+      ],
+      conversion: [
+        { label: "Рост органического трафика", value: "+120%" },
+        { label: "Позиции в топ-10", value: "8 запросов" },
       ],
     },
   },
