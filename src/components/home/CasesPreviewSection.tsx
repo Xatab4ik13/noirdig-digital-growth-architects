@@ -32,12 +32,12 @@ export const CasesPreviewSection = () => {
               className="card-noir group overflow-hidden"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="aspect-video bg-secondary rounded-lg mb-4 overflow-hidden relative">
-                <img 
-                  src={caseItem.heroImage} 
-                  alt={caseItem.heroImageAlt}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
+              <div className="aspect-video bg-secondary rounded-lg mb-4 overflow-hidden relative border border-border">
+                <iframe 
+                  src={caseItem.showcaseUrl}
+                  title={caseItem.title}
+                  className="w-full h-full pointer-events-none scale-[0.5] origin-top-left"
+                  style={{ width: '200%', height: '200%' }}
                 />
               </div>
 
