@@ -7,7 +7,7 @@ import balticgroomAdvantages from "@/assets/portfolio/balticgroom-advantages.jpg
 import toprecordsHero from "@/assets/portfolio/toprecords-hero.jpg";
 import toprecordsAbout from "@/assets/portfolio/toprecords-about.jpg";
 import toprecordsBlog from "@/assets/portfolio/toprecords-blog.jpg";
-
+import wowmidnightHero from "@/assets/portfolio/wowmidnight-hero.jpg";
 export interface PortfolioCase {
   id: string;
   category: string;
@@ -192,6 +192,59 @@ export const portfolioCases: PortfolioCase[] = [
       conversion: [
         { label: "Рост органического трафика", value: "+120%" },
         { label: "Позиции в топ-10", value: "8 запросов" },
+      ],
+    },
+  },
+  {
+    id: "wow-midnight",
+    category: "Лендинг + Telegram-бот",
+    industry: "Гейминг",
+    title: "WoW Midnight Store — магазин коллекционных изданий",
+    description: "Разработали продающий лендинг для предзаказа коллекционного издания World of Warcraft: Midnight с интеграцией Telegram-бота для оформления заказов, поддержкой менеджера и онлайн-оплатой.",
+    fullDescription: "WoW Midnight Store — интернет-магазин для предзаказа эксклюзивного коллекционного издания World of Warcraft: Midnight. Мы создали атмосферный лендинг в фирменных фиолетово-синих тонах с динамичным таймером акции, детальной презентацией состава издания (артбук, реплика Темного Сердца с LED-подсветкой, коллекционный значок), блоком гарантий и FAQ. Ключевая особенность — интеграция Telegram-бота с полным функционалом: оформление заказа, связь с менеджером для консультаций, приём оплаты прямо в боте. Это позволяет клиентам совершать покупки без выхода из Telegram.",
+    heroImage: wowmidnightHero,
+    heroImageAlt: "Главная страница магазина WoW Midnight с коллекционным изданием и таймером акции",
+    gallery: [
+      {
+        image: wowmidnightHero,
+        alt: "Hero-секция лендинга WoW Midnight Store с презентацией коллекционного издания",
+        title: "Главная страница",
+      },
+      {
+        image: wowmidnightHero,
+        alt: "Состав коллекционного издания: артбук, реплика, значок, цифровой ключ",
+        title: "Состав издания",
+      },
+      {
+        image: wowmidnightHero,
+        alt: "Блок гарантий и преимуществ магазина WoW Midnight",
+        title: "Гарантии",
+      },
+    ],
+    stack: ["React", "TypeScript", "Telegram Bot API", "Платёжная система"],
+    timeline: "1.5 недели",
+    metrics: [
+      { label: "PageSpeed", value: "94" },
+      { label: "Конверсия в заказ", value: "7.8%" },
+    ],
+    tasks: [
+      "Разработали атмосферный дизайн в стилистике World of Warcraft",
+      "Создали динамичный таймер обратного отсчёта акции",
+      "Интегрировали Telegram-бот для оформления заказов",
+      "Настроили поддержку клиентов через менеджера в боте",
+      "Подключили онлайн-оплату в Telegram-боте",
+      "Оптимизировали Core Web Vitals и мобильную версию",
+    ],
+    kpiDetails: {
+      vitals: [
+        { label: "LCP", value: "≤ 1.8 сек" },
+        { label: "CLS", value: "≤ 0.05" },
+        { label: "INP", value: "≤ 150 мс" },
+        { label: "PageSpeed Mobile", value: "94" },
+      ],
+      conversion: [
+        { label: "CR оформления заказа", value: "7.8%" },
+        { label: "Заказы через бота", value: "65%" },
       ],
     },
   },
