@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { SectionHeader } from "@/components/shared/SectionHeader";
+import { OptimizedImage } from "@/components/shared/OptimizedImage";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { portfolioCases } from "@/data/portfolioCases";
@@ -42,14 +43,12 @@ const Portfolio = () => {
                     to={`/portfolio/${caseItem.id}`}
                     className="card-noir group"
                   >
-                    <div className="aspect-video bg-secondary rounded-lg mb-4 relative overflow-hidden">
-                      <img 
-                        src={caseItem.heroImage} 
-                        alt={caseItem.heroImageAlt}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        loading="lazy"
-                      />
-                    </div>
+                    <OptimizedImage
+                      src={caseItem.heroImage}
+                      alt={caseItem.heroImageAlt}
+                      className="transition-transform duration-500 group-hover:scale-105"
+                      containerClassName="mb-4"
+                    />
 
                     <div className="flex items-center gap-2 mb-2">
                       <span className="text-body-sm text-primary">{caseItem.category}</span>
