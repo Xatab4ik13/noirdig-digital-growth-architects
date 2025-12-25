@@ -61,14 +61,14 @@ const Contacts = () => {
               </a>
 
               <a
-                href="tel:+79001234567"
+                href="tel:+79999853914"
                 className="card-noir text-center hover:border-primary transition-colors"
               >
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
                   <Phone className="h-6 w-6 text-primary" />
                 </div>
                 <div className="font-semibold mb-1">Телефон</div>
-                <div className="text-muted-foreground text-body-sm">+7 (900) 123-45-67</div>
+                <div className="text-muted-foreground text-body-sm">+7 999 985 39 14</div>
               </a>
 
               <div className="card-noir text-center">
