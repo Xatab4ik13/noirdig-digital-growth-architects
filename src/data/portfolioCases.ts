@@ -1,7 +1,6 @@
 import monarchHero from "@/assets/portfolio/monarch-hero.jpg";
-import monarchServices from "@/assets/portfolio/monarch-services.jpg";
 import monarchTeam from "@/assets/portfolio/monarch-team.jpg";
-import monarchContacts from "@/assets/portfolio/monarch-contacts.jpg";
+import monarchGallery from "@/assets/portfolio/monarch-gallery.jpg";
 
 export interface PortfolioCase {
   id: string;
