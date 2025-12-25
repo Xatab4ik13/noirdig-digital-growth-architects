@@ -7,6 +7,10 @@ import { portfolioCases } from "@/data/portfolioCases";
 export const CasesPreviewSection = () => {
   const previewCases = portfolioCases.slice(0, 3);
 
+  if (previewCases.length === 0) {
+    return null;
+  }
+
   return (
     <section className="section-padding bg-secondary/30">
       <div className="container-wide">
@@ -32,12 +36,12 @@ export const CasesPreviewSection = () => {
               className="card-noir group overflow-hidden"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="aspect-video bg-secondary rounded-lg mb-4 overflow-hidden relative border border-border">
-                <iframe 
-                  src={caseItem.showcaseUrl}
-                  title={caseItem.title}
-                  className="w-full h-full pointer-events-none scale-[0.5] origin-top-left"
-                  style={{ width: '200%', height: '200%' }}
+              <div className="aspect-video bg-secondary rounded-lg mb-4 overflow-hidden relative">
+                <img 
+                  src={caseItem.heroImage} 
+                  alt={caseItem.heroImageAlt}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
                 />
               </div>
 
