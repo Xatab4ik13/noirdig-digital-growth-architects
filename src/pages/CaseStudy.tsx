@@ -1,31 +1,28 @@
 import { Helmet } from "react-helmet-async";
-import { Link, useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
-import { SectionHeader } from "@/components/shared/SectionHeader";
 import { TelegramCTA } from "@/components/shared/TelegramCTA";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Check, Gauge, MousePointerClick, Search, ExternalLink } from "lucide-react";
-
-// This would typically come from a CMS/database
-const caseData = {
-  "case-1": {
-    title: "Корпоративный сайт для юридической компании",
-    category: "Лендинг",
-    industry: "Юридические услуги",
-    stack: ["React", "Next.js", "Tailwind CSS", "Headless CMS"],
-    timeline: "3 недели",
-  },
-};
+import { Check, Gauge, MousePointerClick } from "lucide-react";
+import { getCaseById } from "@/data/portfolioCases";
 
 const CaseStudy = () => {
   const { caseId } = useParams();
+  const caseData = getCaseById(caseId || "");
+
+  if (!caseData) {
+    return <Navigate to="/portfolio" replace />;
+  }
 
   return (
     <>
       <Helmet>
-        <title>Кейс: Корпоративный сайт — NOIRDIG</title>
-        <meta name="description" content="Кейс разработки корпоративного сайта с измеримыми результатами." />
+        <title>{`Кейс: ${caseData.title} — NOIRDIG`}</title>
+        <meta 
+          name="description" 
+          content={`${caseData.description} Результаты: ${caseData.metrics.map(m => `${m.label} ${m.value}`).join(", ")}.`} 
+        />
+        <link rel="canonical" href={`https://noirdig.ru/portfolio/${caseData.id}/`} />
       </Helmet>
 
       <Layout>
@@ -34,7 +31,7 @@ const CaseStudy = () => {
             <Breadcrumbs
               items={[
                 { label: "Портфолио", href: "/portfolio" },
-                { label: "Кейс", href: `/portfolio/${caseId}` },
+                { label: caseData.title, href: `/portfolio/${caseData.id}` },
               ]}
             />
 
@@ -42,31 +39,31 @@ const CaseStudy = () => {
             <div className="grid lg:grid-cols-2 gap-12 mb-16">
               <div>
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="text-primary text-body-sm">Лендинг</span>
+                  <span className="text-primary text-body-sm">{caseData.category}</span>
                   <span className="text-muted-foreground">•</span>
-                  <span className="text-body-sm text-muted-foreground">Юридические услуги</span>
+                  <span className="text-body-sm text-muted-foreground">{caseData.industry}</span>
                 </div>
-                <h1 className="text-h1 mb-6">Корпоративный сайт для юридической компании</h1>
+                <h1 className="text-h1 mb-6">{caseData.title}</h1>
                 <p className="text-body-lg text-muted-foreground mb-6">
-                  Разработка сайта с продающей структурой и формой записи на консультацию. 
-                  Цель — увеличить количество заявок и укрепить доверие к компании.
+                  {caseData.fullDescription}
                 </p>
                 <div className="flex flex-wrap gap-4 text-body-sm">
                   <div>
                     <span className="text-muted-foreground">Сроки:</span>{" "}
-                    <span className="font-medium">3 недели</span>
+                    <span className="font-medium">{caseData.timeline}</span>
                   </div>
                   <div>
                     <span className="text-muted-foreground">Стек:</span>{" "}
-                    <span className="font-medium">React, Next.js, Tailwind</span>
+                    <span className="font-medium">{caseData.stack.join(", ")}</span>
                   </div>
                 </div>
               </div>
-              <div className="aspect-video bg-secondary rounded-xl relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-xl" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-muted-foreground">Главный экран сайта</span>
-                </div>
+              <div className="aspect-video bg-secondary rounded-xl relative overflow-hidden">
+                <img 
+                  src={caseData.heroImage} 
+                  alt={caseData.heroImageAlt}
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
@@ -74,14 +71,7 @@ const CaseStudy = () => {
             <div className="mb-16">
               <h2 className="text-h2 mb-8">Что сделали</h2>
               <div className="grid md:grid-cols-2 gap-4">
-                {[
-                  "Упаковали оффер: структура под продажи, сильные CTA, понятный путь до заявки",
-                  "Собрали прототип → дизайн → разработка → тесты → запуск",
-                  "Настроили аналитику и события: заявки, клики в мессенджер, звонки",
-                  "Оптимизировали скорость: изображения, шрифты, критический CSS, lazy-load",
-                  "Подготовили SEO-скелет: ЧПУ, мета-теги, перелинковка, schema.org",
-                  "Интегрировали формы с Telegram-уведомлениями",
-                ].map((item) => (
+                {caseData.tasks.map((item) => (
                   <div key={item} className="flex items-start gap-3 card-noir">
                     <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                     <span>{item}</span>
@@ -110,12 +100,7 @@ const CaseStudy = () => {
                     </div>
                   </div>
                   <div className="space-y-3">
-                    {[
-                      { label: "LCP", value: "≤ 2.0 сек" },
-                      { label: "CLS", value: "≤ 0.10" },
-                      { label: "INP", value: "≤ 200 мс" },
-                      { label: "PageSpeed Mobile", value: "90+" },
-                    ].map((item) => (
+                    {caseData.kpiDetails.vitals.map((item) => (
                       <div key={item.label} className="flex justify-between py-2 border-b border-border last:border-0">
                         <span>{item.label}</span>
                         <span className="text-primary font-semibold">{item.value}</span>
@@ -136,10 +121,7 @@ const CaseStudy = () => {
                     </div>
                   </div>
                   <div className="space-y-3">
-                    {[
-                      { label: "Целевой CR", value: "3-6%" },
-                      { label: "Рост заявок после оптимизации", value: "+20-60%" },
-                    ].map((item) => (
+                    {caseData.kpiDetails.conversion.map((item) => (
                       <div key={item.label} className="flex justify-between py-2 border-b border-border last:border-0">
                         <span>{item.label}</span>
                         <span className="text-primary font-semibold">{item.value}</span>
@@ -166,15 +148,21 @@ const CaseStudy = () => {
               </div>
             </div>
 
-            {/* Gallery placeholder */}
+            {/* Gallery */}
             <div className="mb-16">
               <h2 className="text-h2 mb-8">Галерея проекта</h2>
               <div className="grid md:grid-cols-2 gap-6">
-                {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="aspect-video bg-secondary rounded-lg relative">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-muted-foreground">Экран {i}</span>
+                {caseData.gallery.map((item, index) => (
+                  <div key={index} className="group">
+                    <div className="aspect-video bg-secondary rounded-lg relative overflow-hidden mb-3">
+                      <img 
+                        src={item.image} 
+                        alt={item.alt}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
                     </div>
+                    <h3 className="text-body font-medium">{item.title}</h3>
                   </div>
                 ))}
               </div>
