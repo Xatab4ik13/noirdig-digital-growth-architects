@@ -6,13 +6,23 @@ import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
+// Portfolio images
+import lawFirmImg from "@/assets/portfolio/law-firm-site.jpg";
+import dentalShopImg from "@/assets/portfolio/dental-shop.jpg";
+import photoStudioImg from "@/assets/portfolio/photo-studio.jpg";
+import barbershopImg from "@/assets/portfolio/barbershop.jpg";
+import banyaConstructionImg from "@/assets/portfolio/banya-construction.jpg";
+import groomingSalonImg from "@/assets/portfolio/grooming-salon.jpg";
+
 const cases = [
   {
     id: "case-1",
-    category: "Лендинг",
+    category: "Корпоративный сайт",
     industry: "Юридические услуги",
-    title: "Корпоративный сайт для юридической компании",
-    description: "Разработка сайта с продающей структурой и формой записи на консультацию",
+    title: "Право и Партнёры — юридическая компания",
+    description: "Разработали премиальный корпоративный сайт с продающей структурой, формой записи на консультацию и интеграцией с CRM. Сайт полностью оптимизирован для SEO.",
+    image: lawFirmImg,
+    imageAlt: "Корпоративный сайт юридической компании Право и Партнёры с тёмно-синим дизайном и золотыми акцентами",
     metrics: [
       { label: "PageSpeed", value: "94" },
       { label: "Конверсия", value: "4.2%" },
@@ -20,62 +30,70 @@ const cases = [
   },
   {
     id: "case-2",
-    category: "Telegram-бот",
-    industry: "Бьюти",
-    title: "Бот для автоматизации записи клиентов",
-    description: "Воронка продаж и автоматическая запись на услуги салона красоты",
+    category: "Интернет-магазин",
+    industry: "E-commerce",
+    title: "DentalCare — магазин товаров для гигиены полости рта",
+    description: "Создали современный интернет-магазин с каталогом 500+ товаров, интеграцией оплаты и доставки. Минималистичный дизайн в мятных тонах подчёркивает свежесть бренда.",
+    image: dentalShopImg,
+    imageAlt: "Интернет-магазин товаров для гигиены полости рта DentalCare с минималистичным светлым дизайном",
     metrics: [
-      { label: "Конверсия в запись", value: "28%" },
-      { label: "Снижение нагрузки", value: "-35%" },
+      { label: "PageSpeed", value: "92" },
+      { label: "Рост продаж", value: "+65%" },
     ],
   },
   {
     id: "case-3",
-    category: "Интернет-магазин",
-    industry: "E-commerce",
-    title: "Магазин товаров для дома с интеграцией 1С",
-    description: "Каталог 5000+ товаров, синхронизация остатков и цен с 1С",
+    category: "Сайт-портфолио",
+    industry: "Фотография",
+    title: "Nendea Studio — фотостудия",
+    description: "Разработали креативный сайт для фотостудии с галереей работ, системой бронирования и тёмным дизайном, который подчёркивает художественность фотографий.",
+    image: photoStudioImg,
+    imageAlt: "Сайт фотостудии Nendea Studio с тёмным креативным дизайном и галереей работ",
     metrics: [
-      { label: "PageSpeed", value: "91" },
-      { label: "Рост заявок", value: "+45%" },
+      { label: "PageSpeed", value: "96" },
+      { label: "Бронирования", value: "+120%" },
     ],
   },
   {
     id: "case-4",
-    category: "Корпоративный сайт",
-    industry: "B2B Производство",
-    title: "Сайт для производственной компании",
-    description: "Многостраничный сайт с каталогом продукции и калькулятором",
+    category: "Лендинг + Telegram-бот",
+    industry: "Бьюти",
+    title: "Baber Craft — барбершоп",
+    description: "Создали стильный сайт в винтажном стиле и интегрировали Telegram-бот для онлайн-записи. Клиенты могут записаться к мастеру прямо в мессенджере без звонков.",
+    image: barbershopImg,
+    imageAlt: "Сайт барбершопа Baber Craft с тёмным винтажным дизайном в коричневых тонах",
     metrics: [
-      { label: "PageSpeed", value: "92" },
-      { label: "Органический трафик", value: "+120%" },
+      { label: "Конверсия в запись", value: "32%" },
+      { label: "Снижение нагрузки", value: "-45%" },
     ],
   },
   {
     id: "case-5",
-    category: "Telegram-бот",
-    industry: "Образование",
-    title: "Бот для онлайн-школы",
-    description: "Автоматизация продаж курсов и проверка домашних заданий",
+    category: "Корпоративный сайт",
+    industry: "Строительство",
+    title: "БаняМастер — строительство банных комплексов",
+    description: "Разработали сайт для строительной компании с каталогом проектов, калькулятором стоимости и портфолио выполненных работ. Тёплые деревянные тона передают атмосферу бани.",
+    image: banyaConstructionImg,
+    imageAlt: "Сайт компании БаняМастер по строительству бань с деревянным тёплым дизайном",
     metrics: [
-      { label: "Конверсия в покупку", value: "18%" },
-      { label: "Автоматизация", value: "70%" },
+      { label: "PageSpeed", value: "91" },
+      { label: "Рост заявок", value: "+85%" },
     ],
   },
   {
     id: "case-6",
     category: "Лендинг",
-    industry: "Услуги",
-    title: "Сайт для клининговой компании",
-    description: "Лендинг с калькулятором стоимости и онлайн-записью",
+    industry: "Груминг",
+    title: "Fluffy Paws — груминг-салон в Москве",
+    description: "Создали яркий и дружелюбный сайт для груминг-салона с онлайн-записью, галереей работ и прайс-листом. Пастельные тона и милые фото питомцев привлекают клиентов.",
+    image: groomingSalonImg,
+    imageAlt: "Сайт груминг-салона Fluffy Paws в Москве с пастельным дизайном и фотографиями питомцев",
     metrics: [
-      { label: "PageSpeed", value: "96" },
+      { label: "PageSpeed", value: "95" },
       { label: "Конверсия", value: "5.8%" },
     ],
   },
 ];
-
-
 
 const Portfolio = () => {
   return (
@@ -100,7 +118,6 @@ const Portfolio = () => {
               description="Примеры выполненных работ с измеримыми результатами"
             />
 
-
             {/* Cases grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {cases.map((caseItem) => (
@@ -110,10 +127,12 @@ const Portfolio = () => {
                   className="card-noir group"
                 >
                   <div className="aspect-video bg-secondary rounded-lg mb-4 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-muted-foreground text-body-sm">Превью проекта</span>
-                    </div>
+                    <img 
+                      src={caseItem.image} 
+                      alt={caseItem.imageAlt}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
                   </div>
 
                   <div className="flex items-center gap-2 mb-2">
