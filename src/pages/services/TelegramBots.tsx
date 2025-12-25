@@ -96,6 +96,20 @@ const faqs = [
 ];
 
 const TelegramBots = () => {
+  // FAQ Schema для SEO
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
   return (
     <>
       <Helmet>
@@ -105,6 +119,9 @@ const TelegramBots = () => {
           content="Создание Telegram-ботов для бизнеса: воронки продаж, запись клиентов, интеграции с CRM, приём оплаты. От 10 000 ₽."
         />
         <link rel="canonical" href="https://noirdig.ru/services/telegram-bots/" />
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchema)}
+        </script>
       </Helmet>
 
       <Layout>
