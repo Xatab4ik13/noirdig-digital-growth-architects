@@ -2,52 +2,11 @@ import { Link } from "react-router-dom";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-
-// Portfolio images
-import lawFirmImg from "@/assets/portfolio/law-firm-site.jpg";
-import dentalShopImg from "@/assets/portfolio/dental-shop.jpg";
-import photoStudioImg from "@/assets/portfolio/photo-studio.jpg";
-
-const cases = [
-  {
-    id: "case-1",
-    category: "Корпоративный сайт",
-    industry: "Юридические услуги",
-    title: "Право и Партнёры — юридическая компания",
-    image: lawFirmImg,
-    imageAlt: "Корпоративный сайт юридической компании Право и Партнёры с тёмно-синим дизайном",
-    metrics: [
-      { label: "PageSpeed", value: "94" },
-      { label: "Конверсия", value: "4.2%" },
-    ],
-  },
-  {
-    id: "case-2",
-    category: "Интернет-магазин",
-    industry: "E-commerce",
-    title: "DentalCare — магазин товаров для гигиены полости рта",
-    image: dentalShopImg,
-    imageAlt: "Интернет-магазин товаров для гигиены полости рта DentalCare",
-    metrics: [
-      { label: "PageSpeed", value: "92" },
-      { label: "Рост продаж", value: "+65%" },
-    ],
-  },
-  {
-    id: "case-3",
-    category: "Сайт-портфолио",
-    industry: "Фотография",
-    title: "Nendea Studio — фотостудия",
-    image: photoStudioImg,
-    imageAlt: "Сайт фотостудии Nendea Studio с тёмным креативным дизайном",
-    metrics: [
-      { label: "PageSpeed", value: "96" },
-      { label: "Бронирования", value: "+120%" },
-    ],
-  },
-];
+import { portfolioCases } from "@/data/portfolioCases";
 
 export const CasesPreviewSection = () => {
+  const previewCases = portfolioCases.slice(0, 3);
+
   return (
     <section className="section-padding bg-secondary/30">
       <div className="container-wide">
@@ -66,18 +25,17 @@ export const CasesPreviewSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {cases.map((caseItem, index) => (
+          {previewCases.map((caseItem, index) => (
             <Link
               key={caseItem.id}
               to={`/portfolio/${caseItem.id}`}
               className="card-noir group overflow-hidden"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              {/* Project image */}
               <div className="aspect-video bg-secondary rounded-lg mb-4 overflow-hidden relative">
                 <img 
-                  src={caseItem.image} 
-                  alt={caseItem.imageAlt}
+                  src={caseItem.heroImage} 
+                  alt={caseItem.heroImageAlt}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
