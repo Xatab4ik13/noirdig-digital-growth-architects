@@ -14,6 +14,10 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("noirdig-theme") as Theme;
       if (saved) return saved;
+      
+      // Default to dark theme on mobile devices
+      const isMobile = window.innerWidth < 768;
+      if (isMobile) return "dark";
     }
     return "dark"; // Default to dark theme
   });
