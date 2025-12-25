@@ -25,18 +25,6 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Consent from "./pages/Consent";
 import NotFound from "./pages/NotFound";
 
-// Showcase pages (portfolio demos)
-import PravoHome from "./pages/showcase/PravoHome";
-import PravoServices from "./pages/showcase/PravoServices";
-import PravoContacts from "./pages/showcase/PravoContacts";
-import DentalHome from "./pages/showcase/DentalHome";
-import DentalCatalog from "./pages/showcase/DentalCatalog";
-import DentalCart from "./pages/showcase/DentalCart";
-import NendeaHome from "./pages/showcase/NendeaHome";
-import BarberHome from "./pages/showcase/BarberHome";
-import BanyaHome from "./pages/showcase/BanyaHome";
-import FluffyHome from "./pages/showcase/FluffyHome";
-
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -64,19 +52,6 @@ const App = () => (
               <Route path="/contacts" element={<Contacts />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/consent" element={<Consent />} />
-              
-              {/* Showcase routes */}
-              <Route path="/showcase/pravo" element={<PravoHome />} />
-              <Route path="/showcase/pravo/services" element={<PravoServices />} />
-              <Route path="/showcase/pravo/contacts" element={<PravoContacts />} />
-              <Route path="/showcase/dental" element={<DentalHome />} />
-              <Route path="/showcase/dental/catalog" element={<DentalCatalog />} />
-              <Route path="/showcase/dental/cart" element={<DentalCart />} />
-              <Route path="/showcase/nendea" element={<NendeaHome />} />
-              <Route path="/showcase/barber" element={<BarberHome />} />
-              <Route path="/showcase/banya" element={<BanyaHome />} />
-              <Route path="/showcase/fluffy" element={<FluffyHome />} />
-              
               <Route path="*" element={<NotFound />} />
             </Routes>
           </TooltipProvider>
