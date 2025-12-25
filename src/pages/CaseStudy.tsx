@@ -180,20 +180,6 @@ const CaseStudy = () => {
               </div>
             </div>
 
-            {/* Similar cases */}
-            <div className="mb-16">
-              <h2 className="text-h2 mb-8">Похожие кейсы</h2>
-              <div className="grid md:grid-cols-3 gap-6">
-                {[1, 2, 3].map((i) => (
-                  <Link key={i} to={`/portfolio/case-${i}`} className="card-noir group">
-                    <div className="aspect-video bg-secondary rounded-lg mb-4" />
-                    <h3 className="font-semibold group-hover:text-primary transition-colors">
-                      Похожий проект {i}
-                    </h3>
-                  </Link>
-                ))}
-              </div>
-            </div>
           </div>
         </section>
 
