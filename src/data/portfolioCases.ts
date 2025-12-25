@@ -46,14 +46,14 @@ export const portfolioCases: PortfolioCase[] = [
         title: "Главная страница",
       },
       {
-        image: monarchServices,
-        alt: "Блок услуг барбершопа Monarch с прайс-листом и категориями мастеров",
-        title: "Прайс-лист услуг",
-      },
-      {
         image: monarchTeam,
         alt: "Секция команды барбершопа Monarch с фотографиями мастеров",
         title: "Команда мастеров",
+      },
+      {
+        image: monarchGallery,
+        alt: "Галерея услуг и подарочные сертификаты барбершопа Monarch",
+        title: "Галерея и сертификаты",
       },
     ],
     stack: ["HTML/CSS", "JavaScript", "YCLIENTS API"],
