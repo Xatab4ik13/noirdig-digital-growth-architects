@@ -30,47 +30,52 @@ const Portfolio = () => {
               description="Примеры выполненных работ с измеримыми результатами"
             />
 
-            {/* Cases grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {portfolioCases.map((caseItem) => (
-                <Link
-                  key={caseItem.id}
-                  to={`/portfolio/${caseItem.id}`}
-                  className="card-noir group"
-                >
-                  <div className="aspect-video bg-secondary rounded-lg mb-4 relative overflow-hidden border border-border">
-                    <iframe 
-                      src={caseItem.showcaseUrl}
-                      title={caseItem.title}
-                      className="w-full h-full pointer-events-none scale-[0.5] origin-top-left"
-                      style={{ width: '200%', height: '200%' }}
-                    />
-                  </div>
+            {portfolioCases.length === 0 ? (
+              <div className="text-center py-16">
+                <p className="text-muted-foreground">Проекты скоро появятся</p>
+              </div>
+            ) : (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {portfolioCases.map((caseItem) => (
+                  <Link
+                    key={caseItem.id}
+                    to={`/portfolio/${caseItem.id}`}
+                    className="card-noir group"
+                  >
+                    <div className="aspect-video bg-secondary rounded-lg mb-4 relative overflow-hidden">
+                      <img 
+                        src={caseItem.heroImage} 
+                        alt={caseItem.heroImageAlt}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
 
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-body-sm text-primary">{caseItem.category}</span>
-                    <span className="text-muted-foreground">•</span>
-                    <span className="text-body-sm text-muted-foreground">{caseItem.industry}</span>
-                  </div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-body-sm text-primary">{caseItem.category}</span>
+                      <span className="text-muted-foreground">•</span>
+                      <span className="text-body-sm text-muted-foreground">{caseItem.industry}</span>
+                    </div>
 
-                  <h3 className="text-h4 mb-2 group-hover:text-primary transition-colors">
-                    {caseItem.title}
-                  </h3>
-                  <p className="text-body-sm text-muted-foreground mb-4">
-                    {caseItem.description}
-                  </p>
+                    <h3 className="text-h4 mb-2 group-hover:text-primary transition-colors">
+                      {caseItem.title}
+                    </h3>
+                    <p className="text-body-sm text-muted-foreground mb-4">
+                      {caseItem.description}
+                    </p>
 
-                  <div className="flex gap-4">
-                    {caseItem.metrics.map((metric) => (
-                      <div key={metric.label}>
-                        <div className="text-lg font-semibold text-primary">{metric.value}</div>
-                        <div className="text-body-sm text-muted-foreground">{metric.label}</div>
-                      </div>
-                    ))}
-                  </div>
-                </Link>
-              ))}
-            </div>
+                    <div className="flex gap-4">
+                      {caseItem.metrics.map((metric) => (
+                        <div key={metric.label}>
+                          <div className="text-lg font-semibold text-primary">{metric.value}</div>
+                          <div className="text-body-sm text-muted-foreground">{metric.label}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         </section>
 

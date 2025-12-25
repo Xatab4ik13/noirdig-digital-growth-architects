@@ -1,16 +1,14 @@
 import { Helmet } from "react-helmet-async";
-import { useParams, Navigate, Link } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { TelegramCTA } from "@/components/shared/TelegramCTA";
-import { Check, Gauge, MousePointerClick, ExternalLink } from "lucide-react";
+import { Check, Gauge, MousePointerClick } from "lucide-react";
 import { getCaseById } from "@/data/portfolioCases";
-import { useState } from "react";
 
 const CaseStudy = () => {
   const { caseId } = useParams();
   const caseData = getCaseById(caseId || "");
-  const [activeScreen, setActiveScreen] = useState(0);
 
   if (!caseData) {
     return <Navigate to="/portfolio" replace />;
@@ -60,21 +58,12 @@ const CaseStudy = () => {
                   </div>
                 </div>
               </div>
-              <div className="aspect-video bg-secondary rounded-xl relative overflow-hidden border border-border">
-                <iframe 
-                  src={caseData.showcaseUrl}
-                  title={`Превью: ${caseData.title}`}
-                  className="w-full h-full scale-[0.5] origin-top-left"
-                  style={{ width: '200%', height: '200%' }}
+              <div className="aspect-video bg-secondary rounded-xl relative overflow-hidden">
+                <img 
+                  src={caseData.heroImage} 
+                  alt={caseData.heroImageAlt}
+                  className="w-full h-full object-cover"
                 />
-                <Link 
-                  to={caseData.showcaseUrl}
-                  target="_blank"
-                  className="absolute bottom-3 right-3 bg-primary text-primary-foreground px-3 py-1.5 rounded-lg text-sm flex items-center gap-1.5 hover:bg-primary/90 transition-colors"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                  Открыть сайт
-                </Link>
               </div>
             </div>
 
@@ -159,54 +148,23 @@ const CaseStudy = () => {
               </div>
             </div>
 
-            {/* Gallery - Interactive screens */}
+            {/* Gallery */}
             <div className="mb-16">
-              <h2 className="text-h2 mb-8">Экраны проекта</h2>
-              
-              {/* Screen tabs */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {caseData.gallery.map((screen, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setActiveScreen(index)}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                      activeScreen === index
-                        ? 'bg-primary text-primary-foreground'
-                        : 'bg-secondary text-muted-foreground hover:text-foreground'
-                    }`}
-                  >
-                    {screen.title}
-                  </button>
+              <h2 className="text-h2 mb-8">Галерея проекта</h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                {caseData.gallery.map((item, index) => (
+                  <div key={index} className="group">
+                    <div className="aspect-video bg-secondary rounded-lg relative overflow-hidden mb-3">
+                      <img 
+                        src={item.image} 
+                        alt={item.alt}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+                    <h3 className="text-body font-medium">{item.title}</h3>
+                  </div>
                 ))}
-              </div>
-
-              {/* Active screen preview */}
-              <div className="bg-secondary rounded-xl border border-border overflow-hidden">
-                <div className="bg-card border-b border-border px-4 py-2 flex items-center gap-2">
-                  <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                  </div>
-                  <div className="flex-1 text-center text-sm text-muted-foreground">
-                    {caseData.gallery[activeScreen]?.title}
-                  </div>
-                  <Link 
-                    to={caseData.gallery[activeScreen]?.url || "#"}
-                    target="_blank"
-                    className="text-primary hover:underline text-sm flex items-center gap-1"
-                  >
-                    <ExternalLink className="w-3.5 h-3.5" />
-                    Открыть
-                  </Link>
-                </div>
-                <div className="aspect-[16/10] relative">
-                  <iframe 
-                    src={caseData.gallery[activeScreen]?.url}
-                    title={caseData.gallery[activeScreen]?.title}
-                    className="absolute inset-0 w-full h-full"
-                  />
-                </div>
               </div>
             </div>
 
