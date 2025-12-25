@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { SectionHeader } from "@/components/shared/SectionHeader";
+import { OptimizedImage } from "@/components/shared/OptimizedImage";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { portfolioCases } from "@/data/portfolioCases";
@@ -36,14 +37,12 @@ export const CasesPreviewSection = () => {
               className="card-noir group overflow-hidden"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="aspect-video bg-secondary rounded-lg mb-4 overflow-hidden relative">
-                <img 
-                  src={caseItem.heroImage} 
-                  alt={caseItem.heroImageAlt}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
+              <OptimizedImage
+                src={caseItem.heroImage}
+                alt={caseItem.heroImageAlt}
+                className="transition-transform duration-500 group-hover:scale-105"
+                containerClassName="mb-4"
+              />
 
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-body-sm text-primary">{caseItem.category}</span>

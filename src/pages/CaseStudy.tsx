@@ -3,6 +3,7 @@ import { useParams, Navigate } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { TelegramCTA } from "@/components/shared/TelegramCTA";
+import { OptimizedImage } from "@/components/shared/OptimizedImage";
 import { Check, Gauge, MousePointerClick } from "lucide-react";
 import { getCaseById } from "@/data/portfolioCases";
 
@@ -58,13 +59,11 @@ const CaseStudy = () => {
                   </div>
                 </div>
               </div>
-              <div className="aspect-video bg-secondary rounded-xl relative overflow-hidden">
-                <img 
-                  src={caseData.heroImage} 
-                  alt={caseData.heroImageAlt}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <OptimizedImage
+                src={caseData.heroImage}
+                alt={caseData.heroImageAlt}
+                containerClassName="rounded-xl"
+              />
             </div>
 
             {/* What we did */}
@@ -154,14 +153,12 @@ const CaseStudy = () => {
               <div className="grid md:grid-cols-2 gap-6">
                 {caseData.gallery.map((item, index) => (
                   <div key={index} className="group">
-                    <div className="aspect-video bg-secondary rounded-lg relative overflow-hidden mb-3">
-                      <img 
-                        src={item.image} 
-                        alt={item.alt}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        loading="lazy"
-                      />
-                    </div>
+                    <OptimizedImage
+                      src={item.image}
+                      alt={item.alt}
+                      className="transition-transform duration-500 group-hover:scale-105"
+                      containerClassName="mb-3"
+                    />
                     <h3 className="text-body font-medium">{item.title}</h3>
                   </div>
                 ))}
