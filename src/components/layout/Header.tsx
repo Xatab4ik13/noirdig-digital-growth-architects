@@ -4,7 +4,7 @@ import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/hooks/useTheme";
 import { Logo } from "@/components/shared/Logo";
-
+import { ymReachGoal } from "@/hooks/useYandexMetrika";
 const navigation = [
   { name: "Главная", href: "/" },
   {
@@ -111,7 +111,7 @@ export const Header = () => {
             </Button>
 
             <Button variant="gold" className="hidden md:flex" asChild>
-              <a href="https://t.me/noirdig_bot" target="_blank" rel="noopener noreferrer">Обсудить проект</a>
+              <a href="https://t.me/noirdig_bot" target="_blank" rel="noopener noreferrer" onClick={() => ymReachGoal('cta_header')}>Обсудить проект</a>
             </Button>
 
             {/* Mobile menu button */}
@@ -172,7 +172,7 @@ export const Header = () => {
                   )}
                 </Button>
                 <Button variant="gold" className="flex-1" asChild>
-                  <a href="https://t.me/noirdig_bot" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
+                  <a href="https://t.me/noirdig_bot" target="_blank" rel="noopener noreferrer" onClick={() => { ymReachGoal('cta_header_mobile'); setIsOpen(false); }}>
                     Обсудить проект
                   </a>
                 </Button>

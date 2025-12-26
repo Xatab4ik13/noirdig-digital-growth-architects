@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Send, ArrowRight } from "lucide-react";
+import { ymReachGoal } from "@/hooks/useYandexMetrika";
 
 interface TelegramCTAProps {
   title?: string;
@@ -10,6 +11,10 @@ export const TelegramCTA = ({
   title = "Не нашли ответ на свой вопрос?",
   subtitle = "Напишите нам — ответим в течение 2 часов",
 }: TelegramCTAProps) => {
+  const handleClick = () => {
+    ymReachGoal('cta_telegram_inline');
+  };
+
   return (
     <div className="card-noir bg-primary/5 border-primary/20 flex flex-col sm:flex-row items-center justify-between gap-4 mt-8">
       <div>
@@ -21,6 +26,7 @@ export const TelegramCTA = ({
           href="https://t.me/noirdig_bot"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={handleClick}
         >
           <Send className="h-4 w-4" />
           Обсудить проект

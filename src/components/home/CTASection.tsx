@@ -1,9 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Send, ArrowRight } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
+import { ymReachGoal } from "@/hooks/useYandexMetrika";
 
 export const CTASection = () => {
   const { ref, isInView } = useInView({ threshold: 0.3 });
+
+  const handleClick = () => {
+    ymReachGoal('cta_main_section');
+  };
 
   return (
     <section className="section-padding relative overflow-hidden">
@@ -43,6 +48,7 @@ export const CTASection = () => {
                 href="https://t.me/noirdig_bot"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={handleClick}
               >
                 <Send className="h-5 w-5 group-hover:rotate-12 transition-transform" />
                 Обсудить проект
