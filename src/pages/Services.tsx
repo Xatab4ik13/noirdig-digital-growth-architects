@@ -45,11 +45,14 @@ const Services = () => {
   return (
     <>
       <Helmet>
-        <title>Услуги — NOIRDIG | Сайты, боты, реклама, поддержка</title>
+        <title>Digital-услуги для бизнеса: сайты, Telegram-боты, реклама | NOIRDIG</title>
         <meta
           name="description"
-          content="Полный цикл digital-услуг: создание сайтов под ключ, Telegram-боты, контекстная реклама, техподдержка. Работаем по всей России."
+          content="Создание сайтов под ключ от 15 000 ₽, разработка Telegram-ботов для автоматизации, настройка Яндекс Директ, техподдержка 24/7. Работаем по всей России."
         />
+        <meta name="keywords" content="создание сайтов под ключ, Telegram-бот для бизнеса, контекстная реклама Яндекс Директ, техподдержка сайтов" />
+        <meta property="og:title" content="Digital-услуги для бизнеса | NOIRDIG" />
+        <meta property="og:description" content="Сайты, Telegram-боты, контекстная реклама, техподдержка. Полный цикл для роста онлайн." />
         <link rel="canonical" href="https://noirdig.ru/services/" />
       </Helmet>
 

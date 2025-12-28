@@ -132,11 +132,14 @@ const Websites = () => {
   return (
     <>
       <Helmet>
-        <title>Создание сайтов под ключ — NOIRDIG</title>
+        <title>Создание сайтов под ключ для бизнеса и стартапов | NOIRDIG</title>
         <meta
           name="description"
-          content="Разработка лендингов, корпоративных сайтов и интернет-магазинов. Современный дизайн, PageSpeed 90+, SEO-оптимизация. От 15 000 ₽."
+          content="Разработка лендингов от 2 дней, корпоративных сайтов и интернет-магазинов под ключ. PageSpeed 90+, SEO-оптимизация, мобильная адаптация. От 15 000 ₽."
         />
+        <meta name="keywords" content="создание сайта под ключ, разработка лендинга, корпоративный сайт, интернет-магазин под ключ, сайт для стартапа, создание интернет-магазинов" />
+        <meta property="og:title" content="Создание сайтов под ключ для бизнеса | NOIRDIG" />
+        <meta property="og:description" content="Лендинги, корпоративные сайты, интернет-магазины. Современный дизайн, SEO, быстрая загрузка." />
         <link rel="canonical" href="https://noirdig.ru/services/websites/" />
         <script type="application/ld+json">
           {JSON.stringify(faqSchema)}

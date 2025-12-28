@@ -113,11 +113,14 @@ const TelegramBots = () => {
   return (
     <>
       <Helmet>
-        <title>Разработка Telegram-ботов — NOIRDIG</title>
+        <title>Telegram-бот для бизнеса: автоматизация продаж и записи клиентов | NOIRDIG</title>
         <meta
           name="description"
-          content="Создание Telegram-ботов для бизнеса: воронки продаж, запись клиентов, интеграции с CRM, приём оплаты. От 10 000 ₽."
+          content="Разработка Telegram-ботов для бизнеса: воронки продаж, онлайн-запись клиентов, интеграция с CRM и платёжными системами, поддержка 24/7. От 10 000 ₽."
         />
+        <meta name="keywords" content="Telegram-бот для бизнеса, разработка Telegram-ботов, автоматизация продаж в Telegram, бот для записи клиентов, интеграция бота с CRM" />
+        <meta property="og:title" content="Telegram-бот для бизнеса | NOIRDIG" />
+        <meta property="og:description" content="Автоматизация продаж, запись клиентов, интеграции с CRM. Боты работают 24/7." />
         <link rel="canonical" href="https://noirdig.ru/services/telegram-bots/" />
         <script type="application/ld+json">
           {JSON.stringify(faqSchema)}
