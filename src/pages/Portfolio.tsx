@@ -12,11 +12,14 @@ const Portfolio = () => {
   return (
     <>
       <Helmet>
-        <title>Портфолио — NOIRDIG | Примеры работ</title>
+        <title>Портфолио: примеры сайтов, интернет-магазинов и Telegram-ботов | NOIRDIG</title>
         <meta
           name="description"
-          content="Портфолио NOIRDIG: примеры сайтов, интернет-магазинов и Telegram-ботов с измеримыми результатами."
+          content="Кейсы NOIRDIG: реальные проекты сайтов, интернет-магазинов и Telegram-ботов с измеримыми результатами. Рост конверсии, увеличение продаж."
         />
+        <meta name="keywords" content="портфолио веб-студии, примеры сайтов, кейсы разработки, примеры интернет-магазинов, примеры Telegram-ботов" />
+        <meta property="og:title" content="Портфолио веб-студии NOIRDIG" />
+        <meta property="og:description" content="Реальные проекты с измеримыми результатами. Сайты, магазины, боты." />
         <link rel="canonical" href="https://noirdig.ru/portfolio/" />
       </Helmet>
 

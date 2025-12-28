@@ -101,11 +101,14 @@ const Support = () => {
   return (
     <>
       <Helmet>
-        <title>Техподдержка и развитие сайтов — NOIRDIG</title>
+        <title>Техподдержка сайтов: мониторинг 24/7, бэкапы, обновления | NOIRDIG</title>
         <meta
           name="description"
-          content="Техническая поддержка сайтов: мониторинг, бэкапы, обновления, доработки. Работаем оперативно, отчитываемся ежемесячно."
+          content="Техническая поддержка и развитие сайтов: мониторинг 24/7, ежедневные бэкапы, обновления CMS, доработки функционала. Реакция от 1 часа. От 5 000 ₽/мес."
         />
+        <meta name="keywords" content="техподдержка сайтов, обслуживание сайтов, мониторинг сайта, резервное копирование, обновление сайта" />
+        <meta property="og:title" content="Техподдержка и развитие сайтов | NOIRDIG" />
+        <meta property="og:description" content="Мониторинг 24/7, бэкапы, обновления, доработки. Работаем оперативно." />
         <link rel="canonical" href="https://noirdig.ru/services/support/" />
         <script type="application/ld+json">
           {JSON.stringify(faqSchema)}

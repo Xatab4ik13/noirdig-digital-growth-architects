@@ -8,11 +8,14 @@ const Contacts = () => {
   return (
     <>
       <Helmet>
-        <title>Контакты — NOIRDIG</title>
+        <title>Контакты NOIRDIG: обсудим ваш проект бесплатно | Email, Telegram</title>
         <meta
           name="description"
-          content="Свяжитесь с NOIRDIG для обсуждения вашего проекта. Email, телефон, Telegram. Отвечаем в течение 2 часов."
+          content="Свяжитесь с NOIRDIG для бесплатной консультации по разработке сайта или Telegram-бота. Email, телефон, Telegram. Отвечаем в течение 2 часов."
         />
+        <meta name="keywords" content="контакты веб-студии, заказать сайт, заказать Telegram-бота, консультация по разработке" />
+        <meta property="og:title" content="Контакты NOIRDIG" />
+        <meta property="og:description" content="Обсудим ваш проект и предложим решение. Отвечаем в течение 2 часов." />
         <link rel="canonical" href="https://noirdig.ru/contacts/" />
       </Helmet>
 

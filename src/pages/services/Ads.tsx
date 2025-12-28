@@ -97,11 +97,14 @@ const Ads = () => {
   return (
     <>
       <Helmet>
-        <title>Контекстная реклама Яндекс Директ — NOIRDIG</title>
+        <title>Настройка контекстной рекламы Яндекс Директ для бизнеса | NOIRDIG</title>
         <meta
           name="description"
-          content="Настройка и ведение контекстной рекламы в Яндекс Директ. Приводим целевых клиентов с измеримым результатом."
+          content="Настройка и ведение контекстной рекламы в Яндекс Директ. Снижаем стоимость заявки, увеличиваем конверсии. A/B тесты, прозрачные отчёты. От 10 000 ₽/мес."
         />
+        <meta name="keywords" content="настройка Яндекс Директ, контекстная реклама для бизнеса, ведение рекламы, оптимизация CPL, реклама в поиске Яндекса" />
+        <meta property="og:title" content="Контекстная реклама Яндекс Директ | NOIRDIG" />
+        <meta property="og:description" content="Приводим целевых клиентов с измеримым результатом. Прозрачные отчёты." />
         <link rel="canonical" href="https://noirdig.ru/services/ads/" />
         <script type="application/ld+json">
           {JSON.stringify(faqSchema)}

@@ -53,18 +53,20 @@ const Blog = () => {
   return (
     <>
       <Helmet>
-        <title>Блог NOIRDIG — Статьи о разработке и digital-маркетинге</title>
+        <title>Блог о разработке сайтов, Telegram-ботов и SEO-продвижении | NOIRDIG</title>
         <meta
           name="description"
-          content="Полезные статьи о создании сайтов, Telegram-ботов, SEO-оптимизации и digital-маркетинге для бизнеса."
+          content="Полезные статьи о создании сайтов под ключ, разработке Telegram-ботов для бизнеса, SEO-оптимизации и контекстной рекламе. Практические гайды и кейсы."
         />
+        <meta name="keywords" content="статьи о разработке сайтов, блог о Telegram-ботах, SEO советы, контекстная реклама гайды, создание лендингов" />
         <link rel="canonical" href="https://noirdig.ru/blog/" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="Блог NOIRDIG — Статьи о разработке" />
-        <meta property="og:description" content="Полезные статьи о создании сайтов, Telegram-ботов, SEO-оптимизации." />
+        <meta property="og:title" content="Блог о разработке и digital-маркетинге | NOIRDIG" />
+        <meta property="og:description" content="Практические статьи о создании сайтов, Telegram-ботов, SEO и рекламе для бизнеса." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://noirdig.ru/blog/" />
+        <meta property="og:image" content="https://noirdig.ru/og-noirdig.png" />
         
         {/* Structured Data */}
         <script type="application/ld+json">

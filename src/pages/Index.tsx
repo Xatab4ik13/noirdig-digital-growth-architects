@@ -12,16 +12,20 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>NOIRDIG — Создание сайтов и Telegram-ботов под ключ</title>
+        <title>Разработка сайтов и Telegram-ботов для бизнеса под ключ | NOIRDIG</title>
         <meta
           name="description"
-          content="Поможем привлечь клиентов и увеличить продажи в онлайне. Разработка сайтов и Telegram-ботов для малого бизнеса и B2B по всей России."
+          content="Создание продающих сайтов, интернет-магазинов и Telegram-ботов для бизнеса. Привлекаем клиентов через SEO и контекстную рекламу. Работаем по всей России."
         />
-        <meta property="og:title" content="NOIRDIG — Создание сайтов и Telegram-ботов" />
+        <meta name="keywords" content="создание сайтов под ключ, разработка Telegram-ботов для бизнеса, интернет-магазин под ключ, сайт для стартапа, SEO продвижение" />
+        <meta property="og:title" content="Разработка сайтов и Telegram-ботов для бизнеса | NOIRDIG" />
         <meta
           property="og:description"
-          content="Премиальная digital-студия. Сайты под ключ, Telegram-боты, контекстная реклама."
+          content="Создаём продающие сайты и Telegram-ботов для автоматизации бизнеса. От разработки до продвижения."
         />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://noirdig.ru/" />
+        <meta property="og:image" content="https://noirdig.ru/og-noirdig.png" />
         <link rel="canonical" href="https://noirdig.ru/" />
       </Helmet>
 
